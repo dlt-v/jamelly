@@ -16,7 +16,7 @@ function LoginForm({ Login, error }) {
         <p id="elly">elly</p>
       </h1>
       <div id="Rectangle2">
-        {error != "" ? <div className="error">{error}</div> : ""}
+        {error != "" ? <div id="error">{error}</div> : ""}
         <div id="Rectangle1">
           <input
             type="email"
@@ -41,6 +41,7 @@ function LoginForm({ Login, error }) {
           <input type="submit" value="Zaloguj" id="Login" />
         </div>
       </div>
+      <h6>Zapomniałeś hasła?</h6>
     </form>
   );
 }
