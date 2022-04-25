@@ -11,15 +11,27 @@ function App() {
   //pobieramy dane od użytkownika
   const [user, setUser] = useState({ email: "", password: "" });
   //jeśli dane są nieprawidłowe, to wyrzucamy mu error
-  const [error, setError] = useState("ERROR");
+  const [error, setError] = useState("");
 
   // funkcja logowania
   const Login = (details) => {
-    console.log(details);
+    if (
+      details.email == adminUser.email &&
+      details.password == adminUser.password
+    ) {
+      console.log("Logged in!");
+      setUser({
+        email: details.email,
+        password: details.password,
+      });
+    } else {
+      console.log("Details do not match!");
+      setError("Details do not match!");
+    }
   };
   //funkcja wylogowania
   const Logout = () => {
-    console.log("Logout");
+    setUser({ email: "", password: "" });
   };
 
   return (
@@ -30,11 +42,11 @@ function App() {
           <h2>
             Welcome, <span>{user.name}</span>
           </h2>
-          <button>Logout</button>
+          <button onClick={Logout}>Logout</button>
         </div>
       ) : (
         //w przeciwnym wypadku wyświetlamy formularz logowania
-        <LoginForm Login={Login} error={error}/>
+        <LoginForm Login={Login} error={error} />
       )}
     </div>
   );

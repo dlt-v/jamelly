@@ -17,7 +17,7 @@ body {
 
   color: #e82525;
 }
-#elly{
+#elly {
   position: absolute;
   width: 294px;
   height: 106px;
@@ -70,21 +70,20 @@ body {
 
   color: rgba(255, 255, 255, 0.5);
 }
-#pass{
+#pass {
   position: absolute;
-width: 40px;
-height: 19px;
-left: calc(50% - 40px/2 - 113px);
-top: calc(50% - 65px/2 + 7.5px);
+  width: 40px;
+  height: 19px;
+  left: calc(50% - 40px / 2 - 113px);
+  top: calc(50% - 65px / 2 + 7.5px);
 
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 19px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
 
-
-color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.5);
 }
 #LoginText {
   position: absolute;

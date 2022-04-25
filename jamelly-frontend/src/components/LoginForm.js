@@ -1,21 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 
-function LoginForm({Login, error}) {
+function LoginForm({ Login, error }) {
+  const [details, setDetails] = useState({ email: "", password: "" });
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    Login(details);
+  };
+
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <h1>
         <p id="Jam">Jam</p>
         <p id="elly">elly</p>
       </h1>
       <div id="Rectangle2">
+        {error != "" ? <div className="error">{error}</div> : ""}
         <div id="Rectangle1">
-          <input type="email" name="email" id="email" />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            onChange={(e) => setDetails({ ...details, email: e.target.value })}
+            value={details.email}
+          />
         </div>
         <div id="Rectangle3">
-          <input type="text" name="password" id="password" />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            onChange={(e) =>
+              setDetails({ ...details, password: e.target.value })
+            }
+            value={details.password}
+          />
         </div>
         <div>
-            <input type="submit" value="Zaloguj" id="Login" />
+          <input type="submit" value="Zaloguj" id="Login" />
         </div>
       </div>
     </form>
