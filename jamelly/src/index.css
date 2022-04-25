@@ -43,7 +43,7 @@ body {
   background: #6a6a6a;
   border-radius: 15px;
 }
-#Rectangle1 {
+#email {
   position: absolute;
   width: 296px;
   height: 35px;
@@ -100,7 +100,7 @@ color: rgba(255, 255, 255, 0.5);
 
   color: #ffffff;
 }
-#Rectangle3 {
+#password {
   position: absolute;
   width: 296px;
   height: 35px;
