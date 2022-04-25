@@ -26,7 +26,7 @@ function App() {
       });
     } else {
       console.log("Details do not match!");
-      setError("Details do not match!");
+      setError("Błędne dane");
     }
   };
   //funkcja wylogowania

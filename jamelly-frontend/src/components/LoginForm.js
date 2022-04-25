@@ -22,6 +22,7 @@ function LoginForm({ Login, error }) {
             type="email"
             name="email"
             id="email"
+            placeholder="adres email"
             onChange={(e) => setDetails({ ...details, email: e.target.value })}
             value={details.email}
           />
@@ -31,6 +32,7 @@ function LoginForm({ Login, error }) {
             type="password"
             name="password"
             id="password"
+            placeholder="hasło"
             onChange={(e) =>
               setDetails({ ...details, password: e.target.value })
             }
