@@ -1,8 +1,14 @@
 import LoginForm from "./components/LoginForm";
+
 import WelcomeSite from "./pages/WelcomeSite";
 import Notebook from "./pages/Notebook";
 import Settings from "./pages/Settings";
 import Tasks from "./pages/Tasks";
+
+import { ReactComponent as Jamjarico } from "./icons/jam-svgrepo-com.svg";
+import { ReactComponent as Notebookico } from "./icons/notebook-svgrepo-com.svg";
+import { ReactComponent as Settingsico } from "./icons/settings-svgrepo-com.svg";
+import { ReactComponent as Tasksico } from "./icons/tasks-svgrepo-com.svg";
 
 import React, { useState } from "react";
 
@@ -40,11 +46,57 @@ function App() {
     setUser({ email: "", password: "" });
   };
 
+  function Navbar(props) {
+    return (
+      <nav className="navbar">
+        <ul className="navbar-nav">{props.children}</ul>
+      </nav>
+    );
+  }
+
+  function NavItem(props) {
+    const [open, setOpen] = useState(false);
+
+    return (
+      <li className="nav-item">
+        <button className="icon-button" onClick={() => setOpen(!open)}>
+          {props.icon}
+        </button>
+
+        {open && props.children}
+      </li>
+    );
+  }
+
+  function DropdownMenu() {
+    function DropdownItem(props) {
+      return (
+        <button className="menu-item">
+          <span classname="icon-button">{props.leftIcon}</span>
+          {props.children}
+        </button>
+      );
+    }
+
+    return (
+      <div className="dropdown">
+        <DropdownItem leftIcon={<Notebookico />}>Zeszyt</DropdownItem>
+        <DropdownItem leftIcon={<Tasksico />}>Zadania</DropdownItem>
+        <DropdownItem leftIcon={<Settingsico />}>Ustawienia</DropdownItem>
+      </div>
+    );
+  }
+
   return (
     <div className="App">
       {user.email != "" ? ( // jeśli pole email nie jest puste
         // wyświetlamy tymczasowo opcję powitania z możliwością wylogowania
         <div clasName="Welcome">
+          <Navbar>
+            <NavItem icon={<Jamjarico />}>
+              <DropdownMenu />
+            </NavItem>
+          </Navbar>
           <WelcomeSite />
           <button id="logout" onClick={Logout}>
             Logout
