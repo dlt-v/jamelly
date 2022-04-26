@@ -1,5 +1,8 @@
 import LoginForm from "./components/LoginForm";
-import WelcomeSite from "./components/WelcomeSite";
+import WelcomeSite from "./pages/WelcomeSite";
+import Notebook from "./pages/Notebook";
+import Settings from "./pages/Settings";
+import Tasks from "./pages/Tasks";
 
 import React, { useState } from "react";
 
@@ -33,17 +36,19 @@ function App() {
   };
 
   //funkcja wylogowania
-const Logout = () => {
-  setUser({ email: "", password: "" });
-};
+  const Logout = () => {
+    setUser({ email: "", password: "" });
+  };
 
   return (
     <div className="App">
       {user.email != "" ? ( // jeśli pole email nie jest puste
         // wyświetlamy tymczasowo opcję powitania z możliwością wylogowania
         <div clasName="Welcome">
-         <WelcomeSite />
-         <button id="logout" onClick={Logout}>Logout</button>
+          <WelcomeSite />
+          <button id="logout" onClick={Logout}>
+            Logout
+          </button>
         </div>
       ) : (
         //w przeciwnym wypadku wyświetlamy formularz logowania
