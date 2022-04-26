@@ -1,4 +1,6 @@
 import LoginForm from "./components/LoginForm";
+import WelcomeSite from "./components/WelcomeSite";
+
 import React, { useState } from "react";
 
 function App() {
@@ -29,20 +31,19 @@ function App() {
       setError("Błędne dane");
     }
   };
+
   //funkcja wylogowania
-  const Logout = () => {
-    setUser({ email: "", password: "" });
-  };
+const Logout = () => {
+  setUser({ email: "", password: "" });
+};
 
   return (
     <div className="App">
       {user.email != "" ? ( // jeśli pole email nie jest puste
         // wyświetlamy tymczasowo opcję powitania z możliwością wylogowania
         <div clasName="Welcome">
-          <h2>
-            Welcome, <span>{user.name}</span>
-          </h2>
-          <button onClick={Logout}>Logout</button>
+         <WelcomeSite />
+         <button id="logout" onClick={Logout}>Logout</button>
         </div>
       ) : (
         //w przeciwnym wypadku wyświetlamy formularz logowania
