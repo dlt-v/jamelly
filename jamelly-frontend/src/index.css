@@ -82,7 +82,7 @@ body {
   position: absolute;
   width: 294px;
   height: 106px;
-  left: calc(50% - 375px / 2);
+  left: calc(50% - 377px / 2);
 
   top: calc(50% + 175px / 2 - 202px);
 
@@ -100,7 +100,7 @@ body {
   position: absolute;
   width: 294px;
   height: 106px;
-  left: calc(50% - 203px / 2);
+  left: calc(50% - 205px / 2);
   top: calc(50% + 175px / 2 - 202px);
 
   font-family: "Roboto", sans-serif;

@@ -1,10 +1,7 @@
 import LoginForm from "./components/LoginForm";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import AnimatedRoutes from "./components/AnimatedRoutes";
 
-import WelcomeSite from "./pages/WelcomeSite";
-import Notebook from "./pages/Notebook";
-import Settings from "./pages/Settings";
-import Tasks from "./pages/Tasks";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 
 import { ReactComponent as Homepageico } from "./icons/homepage-svgrepo-com.svg";
 import { ReactComponent as Jamjarico } from "./icons/jam-svgrepo-com.svg";
@@ -12,13 +9,14 @@ import { ReactComponent as Notebookico } from "./icons/notebook-svgrepo-com.svg"
 import { ReactComponent as Settingsico } from "./icons/settings-svgrepo-com.svg";
 import { ReactComponent as Tasksico } from "./icons/tasks-svgrepo-com.svg";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function App() {
   //Domyślny admin
   const adminUser = {
     email: "admin@admin.com",
     password: "admin123",
+    username: "Admin",
   };
 
   //pobieramy dane od użytkownika
@@ -36,6 +34,7 @@ function App() {
       setUser({
         email: details.email,
         password: details.password,
+        username: adminUser.username,
       });
     } else {
       console.log("Details do not match!");
@@ -82,13 +81,23 @@ function App() {
 
     return (
       <div className="dropdown">
-        <Link to="/"><DropdownItem leftIcon={<Homepageico />}>Home</DropdownItem></Link>
-        <Link to="/Notebook"><DropdownItem leftIcon={<Notebookico />}>Notebook</DropdownItem></Link>
-        <Link to="/Tasks"><DropdownItem leftIcon={<Tasksico />}>Tasks</DropdownItem></Link>
-        <Link to="/Settings"><DropdownItem leftIcon={<Settingsico />}>Settings</DropdownItem></Link>
+        <Link to="/">
+          <DropdownItem leftIcon={<Homepageico />}>Home</DropdownItem>
+        </Link>
+        <Link to="/Notebook">
+          <DropdownItem leftIcon={<Notebookico />}>Notebook</DropdownItem>
+        </Link>
+        <Link to="/Tasks">
+          <DropdownItem leftIcon={<Tasksico />}>Tasks</DropdownItem>
+        </Link>
+        <Link to="/Settings">
+          <DropdownItem leftIcon={<Settingsico />}>Settings</DropdownItem>
+        </Link>
       </div>
     );
   }
+
+  useEffect(() => {});
 
   return (
     <div className="App">
@@ -101,12 +110,7 @@ function App() {
                 <DropdownMenu />
               </NavItem>
             </Navbar>
-            <Routes>
-              <Route exact path="/" element={<WelcomeSite />}></Route>
-              <Route path="/Notebook" element={<Notebook />}></Route>
-              <Route path="/Tasks" element={<Tasks />}></Route>
-              <Route path="/Settings" element={<Settings />}></Route>
-            </Routes>
+            <AnimatedRoutes />
             <button id="logout" onClick={Logout}>
               Logout
             </button>
