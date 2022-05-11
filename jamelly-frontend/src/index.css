@@ -42,6 +42,7 @@ body {
   color: #ffffff;
 }
 
+/* Formatowanie logotypu [STRONA POWITALNA]*/
 #Jam2 {
   position: absolute;
   width: 294px;
@@ -78,39 +79,40 @@ body {
 }
 
 #Learn {
-    position: absolute;
-    width: 294px;
-    height: 106px;
-    left: calc(50% - 375px / 2);
-  
-    top: calc(50% + 175px / 2 - 202px);
-  
-    font-family: "Roboto", sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 28px;
-    line-height: 106px;
-    text-align: center;
-  
-    color: #e82525;
-  }
-  
-  #smarter {
-    position: absolute;
-    width: 294px;
-    height: 106px;
-    left: calc(50% - 203px / 2);
-    top: calc(50% + 175px / 2 - 202px);
-  
-    font-family: "Roboto", sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 28px;
-    line-height: 106px;
-    text-align: center;
-  
-    color: #ffffff;
-  }
+  position: absolute;
+  width: 294px;
+  height: 106px;
+  left: calc(50% - 375px / 2);
+
+  top: calc(50% + 175px / 2 - 202px);
+
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 106px;
+  text-align: center;
+
+  color: #e82525;
+}
+
+#smarter {
+  position: absolute;
+  width: 294px;
+  height: 106px;
+  left: calc(50% - 203px / 2);
+  top: calc(50% + 175px / 2 - 202px);
+
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 106px;
+  text-align: center;
+
+  color: #ffffff;
+}
+/* Koniec formatowania logotypu [STRONA POWITALNA]*/
 
 #Rectangle2 {
   position: absolute;

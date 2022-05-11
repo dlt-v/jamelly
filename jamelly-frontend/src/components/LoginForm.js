@@ -43,7 +43,9 @@ function LoginForm({ Login, error }) {
           <input type="submit" value="Zaloguj" id="Login" />
         </div>
       </div>
-      <h6><a href="#">Zapomniałeś hasła?</a></h6>
+      <h6>
+        <a href="#">Zapomniałeś hasła?</a>
+      </h6>
     </form>
   );
 }
