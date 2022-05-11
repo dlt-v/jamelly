@@ -340,6 +340,7 @@ a {
 /*Formatowanie dropdownMenu*/
 .dropdown{
   position: absolute;
+  align-items: center;
   top: 58px;
   width: 110px;
   transform: translate(-40%);
@@ -352,7 +353,9 @@ a {
 
 .menu-item{
   height: 50px;
+  width: 120px;
   display: flex;
+  align-self: center;
   align-items: center;
   border-radius: var(--border-radius);
   padding: 0.5rem;
