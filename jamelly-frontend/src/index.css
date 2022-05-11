@@ -153,8 +153,23 @@ body {
   border-radius: 10px;
 }
 
-/*Formatowanie placeholderowego tekstu w oknach inputu*/
-::placeholder {
+/*Formatowanie placeholderowego tekstu w oknach inputu Logowania*/
+#email::placeholder {
+  position: absolute;
+  width: 83px;
+  height: 19px;
+  left: calc(50% - 280px / 2);
+  top: calc(50% - 20px / 2);
+
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+#password::placeholder {
   position: absolute;
   width: 83px;
   height: 19px;
@@ -378,3 +393,114 @@ a {
   padding: 5px;
 }
 /*Koniec formatowania dropdown menu */
+
+/*Tasks strona formatowanie*/
+
+#Todoprompt {
+  position: absolute;
+  width: 400px;
+  height: 19px;
+  right: calc(50% - 510px / 2);
+  top: calc(50% - 800px / 2);
+
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+
+  color: #e82525;
+}
+
+#AddToDo {
+  position: absolute;
+  border: none;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  right: calc(50% - 480px / 2);
+  top: calc(50% - 25px / 2);
+
+  background: #00af7b;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+
+  /* + */
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+
+  color: #ffffff;
+}
+#AddToDo:hover {
+  filter: brightness(1.2);
+}
+
+#todoform {
+  position: absolute;
+  border: none;
+  align-items: center;
+  width: 400px;
+  height: 30px;
+  right: calc(50% - 400px / 2);
+  top: calc(50% - 700px / 2);
+}
+
+#todoinput {
+  width: 400px;
+  height: 125px;
+  left: 587px;
+  top: 132px;
+  text-align: center;
+
+  background: linear-gradient(0deg, #404040, #404040),
+    linear-gradient(0deg, #404040, #404040),
+    linear-gradient(0deg, #404040, #404040), #404040;
+
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 16px;
+
+  border-radius: 15px;
+
+  color: #ffffff;
+}
+
+#todoinput::placeholder {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.delete-icon {
+  margin-right: 5px;
+  color: #fff;
+}
+
+.edit-icon {
+  color: #fff;
+}
+
+.todo-row {
+  position: absolute;
+  width: 400px;
+  height: 190px;
+  right: calc(50% - 400px / 2);
+  top: calc(50% - 400px / 2);
+  
+  background: #007FA9;
+  border-radius: 15px;
+}

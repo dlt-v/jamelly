@@ -104,7 +104,7 @@ function App() {
       <Router>
         {user.email != "" ? ( // jeśli pole email nie jest puste
           // wyświetlamy tymczasowo opcję powitania z możliwością wylogowania
-          <div clasName="Welcome">
+          <div className="Welcome">
             <Navbar>
               <NavItem icon={<Jamjarico />}>
                 <DropdownMenu />
