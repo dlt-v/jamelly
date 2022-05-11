@@ -1,11 +1,12 @@
 import LoginForm from "./components/LoginForm";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 import WelcomeSite from "./pages/WelcomeSite";
 import Notebook from "./pages/Notebook";
 import Settings from "./pages/Settings";
 import Tasks from "./pages/Tasks";
 
+import { ReactComponent as Homepageico } from "./icons/homepage-svgrepo-com.svg";
 import { ReactComponent as Jamjarico } from "./icons/jam-svgrepo-com.svg";
 import { ReactComponent as Notebookico } from "./icons/notebook-svgrepo-com.svg";
 import { ReactComponent as Settingsico } from "./icons/settings-svgrepo-com.svg";
@@ -81,9 +82,10 @@ function App() {
 
     return (
       <div className="dropdown">
-        <DropdownItem leftIcon={<Notebookico />}>Zeszyt</DropdownItem>
-        <DropdownItem leftIcon={<Tasksico />}>Zadania</DropdownItem>
-        <DropdownItem leftIcon={<Settingsico />}>Ustawienia</DropdownItem>
+        <Link to="/"><DropdownItem leftIcon={<Homepageico />}>Home</DropdownItem></Link>
+        <Link to="/Notebook"><DropdownItem leftIcon={<Notebookico />}>Notebook</DropdownItem></Link>
+        <Link to="/Tasks"><DropdownItem leftIcon={<Tasksico />}>Tasks</DropdownItem></Link>
+        <Link to="/Settings"><DropdownItem leftIcon={<Settingsico />}>Settings</DropdownItem></Link>
       </div>
     );
   }
@@ -100,7 +102,10 @@ function App() {
               </NavItem>
             </Navbar>
             <Routes>
-              <Route path="/" element={<WelcomeSite />}></Route>
+              <Route exact path="/" element={<WelcomeSite />}></Route>
+              <Route path="/Notebook" element={<Notebook />}></Route>
+              <Route path="/Tasks" element={<Tasks />}></Route>
+              <Route path="/Settings" element={<Settings />}></Route>
             </Routes>
             <button id="logout" onClick={Logout}>
               Logout
