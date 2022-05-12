@@ -60,7 +60,7 @@ function App() {
 
     return (
       <li className="nav-item">
-        <button className="icon-button-main" onClick={() => setOpen(!open)}>
+        <button className="icon-button" onClick={() => setOpen(!open)}>
           {props.icon}
         </button>
 
@@ -73,7 +73,7 @@ function App() {
     function DropdownItem(props) {
       return (
         <button className="menu-item">
-          <span className="icon-button">{props.leftIcon}</span>
+          <span className="icon-button-menu">{props.leftIcon}</span>
           {props.children}
         </button>
       );
@@ -100,7 +100,7 @@ function App() {
   useEffect(() => {});
 
   return (
-    <div classBame="App">
+    <div className="App">
       <Router>
         {user.email != "" ? ( // jeśli pole email nie jest puste
           // wyświetlamy tymczasowo opcję powitania z możliwością wylogowania
