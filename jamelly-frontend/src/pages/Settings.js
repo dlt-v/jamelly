@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useReducer } from "react";
 import { motion } from "framer-motion";
 
 function SettingsPage() {
@@ -9,7 +9,11 @@ function SettingsPage() {
       exit={{ opacity: 0 }}
       transition={{duration: 0.5}}
     >
-      Ustawienia
+      <div id="SettingsBox">
+        <div id="Avatar"></div>
+        <p id="SettingChoice">Pseudonim: Admin
+        </p>
+      </div>
     </motion.div>
   );
 }

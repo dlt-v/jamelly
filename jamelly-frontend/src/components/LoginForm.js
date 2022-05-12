@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import ForgotPassword from "../pages/ForgotPassword";
+
 
 function LoginForm({ Login, error }) {
   const [details, setDetails] = useState({ email: "", password: "" });
@@ -44,7 +46,7 @@ function LoginForm({ Login, error }) {
         </div>
       </div>
       <h6>
-        <a href="#">Zapomniałeś hasła?</a>
+        <a href={<ForgotPassword />}>Zapomniałeś hasła?</a>
       </h6>
     </form>
   );

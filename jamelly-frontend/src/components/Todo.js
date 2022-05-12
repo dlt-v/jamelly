@@ -30,7 +30,7 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
       <div key={todo.id} onClick={() => completeTodo(todo.id)}>
         {todo.text}
       </div>
-      <div className="icons">
+      <div className="Todoicons">
         <RiCloseCircleLine
           onClick={() => removeTodo(todo.id)}
           className="delete-icon"

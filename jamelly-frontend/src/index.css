@@ -457,9 +457,7 @@ a {
   top: 132px;
   text-align: center;
 
-  background: linear-gradient(0deg, #404040, #404040),
-    linear-gradient(0deg, #404040, #404040),
-    linear-gradient(0deg, #404040, #404040), #404040;
+  background: #404040;
 
   font-family: "Roboto", sans-serif;
   font-style: normal;
@@ -484,26 +482,79 @@ a {
 .Todoicons {
   display: flex;
   align-items: center;
-  font-size: 24px;
+  font-size: 28px;
   cursor: pointer;
 }
 
 .delete-icon {
   margin-right: 5px;
-  color: #fff;
+  color: rgb(255, 0, 0);
 }
 
 .edit-icon {
-  color: #fff;
+  color: rgb(12, 233, 49);
+}
+
+.todo-container {
+  display: flex;
+  align-self: center;
+  flex-direction: row;
+  position: relative;
 }
 
 .todo-row {
-  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 400px;
   height: 190px;
+  position: absolute;
   right: calc(50% - 400px / 2);
   top: calc(50% - 400px / 2);
 
   background: #007fa9;
   border-radius: 15px;
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
 }
+
+#NotebookPlaceholder {
+  position: absolute;
+  width: 541px;
+  height: 232px;
+  left: calc(50% - 541px / 2 + 0.5px);
+  top: calc(50% - 150px / 2 - 281px);
+
+  background: #004960;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+#Lorem {
+  font-family: "Roboto", sans-serif;
+  color: white;
+  font-weight: 400;
+  font-size: 16px;
+  padding: 5px;
+}
+
+#SettingsBox {
+  position: absolute;
+  width: 941px;
+  height: 850px;
+  left: calc(50% - 941px / 2 + 0.5px);
+  top: calc(50% - 1018px / 2 + 113px);
+
+  background: #6A6A6A;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+
+#SettingChoice{
+  font-family: "Roboto", sans-serif;
+  color: white;
+  font-weight: 400;
+  font-size: 24px;
+  padding: 5px;
+}
+

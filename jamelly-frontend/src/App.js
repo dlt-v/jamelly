@@ -73,7 +73,7 @@ function App() {
     function DropdownItem(props) {
       return (
         <button className="menu-item">
-          <span className="icon-button-menu">{props.leftIcon}</span>
+          <span>{props.leftIcon}</span>
           {props.children}
         </button>
       );
