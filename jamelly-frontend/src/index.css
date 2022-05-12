@@ -328,8 +328,7 @@ a {
   justify-content: center;
 }
 
-/* przycisk w postaci emotki */
-.icon-button {
+.icon-button-main {
   --button-size: calc(var(--nav-size) * 0.5);
   width: var(--button-size);
   height: var(--button-size);
@@ -342,16 +341,35 @@ a {
   align-items: center;
   justify-content: center;
   transition: filter 300ms;
+  fill: var(--text-color);
 }
 
+/* przycisk w postaci emotki */
+.icon-button {
+  --button-size: calc(var(--nav-size) * 0.6);
+  width: var(--button-size);
+  height: var(--button-size);
+  background-color: #efefef;
+  border: none;
+  border-radius: 50%;
+  padding: 1px;
+  margin: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: filter 300ms;
+}
+
+/*
 .icon-button:hover {
   filter: brightness(1.2);
 }
-
+*/
 .icon-button svg {
   fill: var(--text-color);
   width: 20px;
   height: 20px;
+  color: white;
 }
 
 /*Formatowanie dropdownMenu*/

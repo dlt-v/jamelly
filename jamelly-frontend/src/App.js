@@ -60,7 +60,7 @@ function App() {
 
     return (
       <li className="nav-item">
-        <button className="icon-button" onClick={() => setOpen(!open)}>
+        <button className="icon-button-main" onClick={() => setOpen(!open)}>
           {props.icon}
         </button>
 
@@ -100,7 +100,7 @@ function App() {
   useEffect(() => {});
 
   return (
-    <div className="App">
+    <div classBame="App">
       <Router>
         {user.email != "" ? ( // jeśli pole email nie jest puste
           // wyświetlamy tymczasowo opcję powitania z możliwością wylogowania
