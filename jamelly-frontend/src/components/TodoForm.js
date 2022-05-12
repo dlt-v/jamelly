@@ -1,4 +1,3 @@
-import { filterProps } from "framer-motion";
 import React, { useState, useEffect, useRef } from "react";
 
 function TodoForm(props) {

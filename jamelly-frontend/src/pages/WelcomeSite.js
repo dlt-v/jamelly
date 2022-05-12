@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 function WelcomeSite(props) {
   return (
     <motion.div
-      clasName="Welcome"
+      className="Welcome"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
