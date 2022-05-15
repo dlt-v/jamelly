@@ -1,47 +1,32 @@
-import React, { useState } from "react";
-import TodoForm from "./TodoForm";
+import React from "react";
 
-import { RiCloseCircleLine } from "react-icons/ri";
-import { TiEdit } from "react-icons/ti";
-
-const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
-  const [edit, setEdit] = useState({
-    id: null,
-    value: "",
-  });
-
-  const submitUpdate = (value) => {
-    updateTodo(edit.id, value);
-    setEdit({
-      id: null,
-      value: "",
-    });
+const Todo = ({ text, setTodos, todos, todo }) => {
+  const deleteHandler = () => {
+    setTodos(todos.filter((el) => el.id !== todo.id));
   };
 
-  if (edit.id) {
-    return <TodoForm edit={edit} onSubmit={submitUpdate} />;
+  const completeHandler = () => {
+      setTodos(todos.map(item => {
+          if(item.id === todo.id){
+              return {
+                  ...item, completed: !item.completed
+              }
+          }
+          return item;
+      }))
   }
 
-  return todos.map((todo, index) => (
-    <div
-      className={todo.isComplete ? "todo-row complete" : "todo-row"}
-      key={index}
-    >
-      <div key={todo.id} onClick={() => completeTodo(todo.id)}>
-        {todo.text}
-      </div>
-      <div className="Todoicons">
-        <RiCloseCircleLine
-          onClick={() => removeTodo(todo.id)}
-          className="delete-icon"
-        />
-        <TiEdit
-          onClick={() => setEdit({ id: todo.id, value: todo.text })}
-          className="edit-icon"
-        />
-      </div>
+  return (
+    <div className="todo">
+      <li className={`todo-item ${todo.completed ? "completed" : ""}`}>{text}</li>
+      <button onClick={completeHandler} className="complete">
+        <i className="done">Done</i>
+      </button>
+      <button onClick={deleteHandler} className="trash">
+        <i className="delete">Delete</i>
+      </button>
     </div>
-  ));
-}
+  );
+};
 
 export default Todo;
