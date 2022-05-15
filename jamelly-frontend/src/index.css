@@ -415,14 +415,14 @@ a {
   color: #e82525;
 }
 
-#AddToDo {
+.todo-button {
   position: absolute;
   border: none;
   align-items: center;
   width: 30px;
   height: 30px;
   right: calc(50% - 560px / 2);
-  top: calc(50% - 740px / 2);
+  top: calc(50% - 690px / 2);
 
   background: #00af7b;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -436,7 +436,14 @@ a {
 
   color: #ffffff;
 }
-#AddToDo:hover {
+
+#plus{
+  position:absolute;
+  right: calc(50% - 15px / 2);
+  top: calc(50% - 75px/ 2);
+}
+
+.todo-button:hover {
   filter: brightness(1.2);
 }
 
@@ -487,7 +494,7 @@ a {
   width: 175px;
   height: 59px;
   right: calc(50% - 850px / 2);
-  top: calc(50% - 600px / 2);
+  top: calc(50% - 615px / 2);
   background-color: #6a6a6a;
   font-family: "Roboto", sans-serif;
   font-weight: 800;

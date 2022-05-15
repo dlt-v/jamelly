@@ -32,7 +32,7 @@ const TodoForm = ({ setInputText, todos, inputText, setTodos, setStatus }) => {
         placeholder="Add a todo"
       />
       <button onClick={submitTodoHandler} className="todo-button" type="submit">
-        <p id="AddToDo">+</p>
+        <p id="plus">+</p>
       </button>
       <div className="select">
         <select onChange={statusHandler} name="todos" className="filter-todo">
