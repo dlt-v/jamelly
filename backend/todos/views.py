@@ -11,3 +11,8 @@ class TodoListCreateAPIView(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         title = serializer.validated_data.get('name')
         serializer.save()
+
+
+class TodoDetailAPIView(generics.RetrieveAPIView):
+    queryset = Todo.objects.all()
+    serializer_class = TodoSerializer
