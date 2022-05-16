@@ -46,12 +46,13 @@ Serwer udostępnia interfejs [REST](https://restfulapi.net/) do manipulowania da
 **Snippety** to są pojedyńcze notatki, które znajdują się w zeszycie.
 Na ten moment są one oddzielne z powodu braku walidacji i przypisania zeszytów poszczególnym użytkownikom.
 
-| Ścieżka                    | Opis                       |
-| -------------------------- | -------------------------- |
-| ~/snippets                 | lista dostępnych snippetów |
-| ~/snippets/<int:pk>        | jeden snippet z podanym id |
-| ~/snippets/<int:pk>/update | aktualizacja snippeta      |
-| ~/snippets/<int:pk>/delete | usuwanie snippeta          |
+| Ścieżka                    | Opis                           |
+| -------------------------- | ------------------------------ |
+| ~/snippets                 | lista dostępnych snippetów     |
+| ~/snippets/<int:pk>        | GET jeden snippet z podanym id |
+| ~/snippets/<int:pk>        | PUT utworzenie snippeta        |
+| ~/snippets/<int:pk>/update | aktualizacja snippeta          |
+| ~/snippets/<int:pk>/delete | usuwanie snippeta              |
 
 **Todo** jest to zadanie z bazową treścią.
 Następny plan jest łączenie zadań w "projekty".
