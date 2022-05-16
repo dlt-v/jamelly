@@ -511,7 +511,8 @@ a {
   top: calc(50% - 270px / 2);
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  padding: 10px;
 
   font-family: "Roboto", sans-serif;
   font-style: normal;
@@ -526,11 +527,12 @@ a {
 .todo-list {
   min-width: 30%;
   list-style: none;
+  height: auto;
 }
 
 .todo-item {
-  height: 30px;
-  margin: 0.5rem;
+  height: 40px;
+  width: auto;
   background: #6a6a6a;
   font-size: 1.5rem;
   color: rgba(255, 255, 255, 0.5);
@@ -538,6 +540,8 @@ a {
   justify-content: space-between;
   align-items: center;
   transition: all 1s ease;
+  word-wrap: break-word;
+  overflow: hidden;
 }
 .filter-todo {
   padding: 1rem;
@@ -546,6 +550,7 @@ a {
 }
 .todo li {
   flex: 1;
+  overflow: hidden;
 }
 
 .trash,
@@ -553,13 +558,12 @@ a {
   background: #ff3700;
   color: white;
   border: none;
-  padding: 1rem;
+  padding: 0.75rem;
   cursor: pointer;
   font-size: 1rem;
+
 }
-.complete-btn {
-  background: rgb(11, 212, 162);
-}
+
 .todo-item {
   padding: 0rem 0.5rem;
 }

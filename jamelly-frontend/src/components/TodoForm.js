@@ -14,6 +14,10 @@ const TodoForm = ({ setInputText, todos, inputText, setTodos, setStatus }) => {
 
   const submitTodoHandler = (e) => {
     e.preventDefault();
+    if(inputText === "" || /^\s*$/.test(inputText)){
+      return;
+    }
+
     setTodos([...todos, { text: inputText, completed: false, id: giveId() }]);
     setInputText("");
   };

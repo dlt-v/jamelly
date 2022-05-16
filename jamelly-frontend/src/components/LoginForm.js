@@ -46,7 +46,7 @@ function LoginForm({ Login, error }) {
         </div>
       </div>
       <h6>
-        <a href={<ForgotPassword />}>Zapomniałeś hasła?</a>
+        <a href="/ForgotPassword">Zapomniałeś hasła?</a>
       </h6>
     </form>
   );
