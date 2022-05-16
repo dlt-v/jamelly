@@ -24,3 +24,11 @@ class TodoUpdateAPIView(generics.UpdateAPIView):
 
     def perform_update(self, serializer):
         instance = serializer.save()
+
+
+class TodoDeleteAPIView(generics.DestroyAPIView):
+    queryset = Todo.objects.all()
+    serializer_class = TodoSerializer
+
+    def perform_destroy(self, instance):
+        super().perform_destroy(instance)
