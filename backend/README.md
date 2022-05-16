@@ -46,31 +46,31 @@ Serwer udostępnia interfejs [REST](https://restfulapi.net/) do manipulowania da
 **Snippety** to są pojedyńcze notatki, które znajdują się w zeszycie.
 Na ten moment są one oddzielne z powodu braku walidacji i przypisania zeszytów poszczególnym użytkownikom.
 
-| Ścieżka                   | Opis                       |
-| ------------------------- | -------------------------- |
-| ~/snippets                | lista dostępnych snippetów |
-| ~/snippet/<int:pk>        | jeden snippet z podanym id |
-| ~/snippet/<int:pk>/update | aktualizacja snippeta      |
-| ~/snippet/<int:pk>/delete | usuwanie snippeta          |
+| Ścieżka                    | Opis                       |
+| -------------------------- | -------------------------- |
+| ~/snippets                 | lista dostępnych snippetów |
+| ~/snippets/<int:pk>        | jeden snippet z podanym id |
+| ~/snippets/<int:pk>/update | aktualizacja snippeta      |
+| ~/snippets/<int:pk>/delete | usuwanie snippeta          |
 
 **Todo** jest to zadanie z bazową treścią.
 Następny plan jest łączenie zadań w "projekty".
 
-| Ścieżka                | Opis                       |
-| ---------------------- | -------------------------- |
-| ~/todos                | lista dostępnych zadań     |
-| ~/todo/<int:pk>        | jedno zadanie z podanym id |
-| ~/todo/<int:pk>/update | aktualizacja zadania       |
-| ~/todo/<int:pk>/delete | usuwanie zadania           |
+| Ścieżka                 | Opis                       |
+| ----------------------- | -------------------------- |
+| ~/todos                 | lista dostępnych zadań     |
+| ~/todos/<int:pk>        | jedno zadanie z podanym id |
+| ~/todos/<int:pk>/update | aktualizacja zadania       |
+| ~/todos/<int:pk>/delete | usuwanie zadania           |
 
 **Grupa** jest to "kategoria" użytkowników.
 na ten moment służy wyłącznie w celach poglądowych z powodów w.w.
 
-| Ścieżka                 | Opis                     |
-| ----------------------- | ------------------------ |
-| ~/groups                | lista dostępnych grup    |
-| ~/group/<int:pk>        | jedna grupa z podanym id |
-| ~/group/<int:pk>/update | aktualizacja grupy       |
-| ~/group/<int:pk>/delete | usuwanie grupy           |
+| Ścieżka                  | Opis                     |
+| ------------------------ | ------------------------ |
+| ~/groups                 | lista dostępnych grup    |
+| ~/groups/<int:pk>        | jedna grupa z podanym id |
+| ~/groups/<int:pk>/update | aktualizacja grupy       |
+| ~/groups/<int:pk>/delete | usuwanie grupy           |
 
 **Zawartość bazy danych nie jest zapisywana.**
