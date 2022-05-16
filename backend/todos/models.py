@@ -15,6 +15,7 @@ class Todo(models.Model):
         CANCELED = 'CANCELED',
 
     status = models.CharField(
+        max_length=10,
         choices=TodoStatus.choices,
         default=TodoStatus.ACTIVE
     )
