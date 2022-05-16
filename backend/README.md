@@ -56,12 +56,13 @@ Na ten moment są one oddzielne z powodu braku walidacji i przypisania zeszytów
 **Todo** jest to zadanie z bazową treścią.
 Następny plan jest łączenie zadań w "projekty".
 
-| Ścieżka                 | Opis                       |
-| ----------------------- | -------------------------- |
-| ~/todos                 | lista dostępnych zadań     |
-| ~/todos/<int:pk>        | jedno zadanie z podanym id |
-| ~/todos/<int:pk>/update | aktualizacja zadania       |
-| ~/todos/<int:pk>/delete | usuwanie zadania           |
+| Ścieżka                 | Opis                           |
+| ----------------------- | ------------------------------ |
+| ~/todos                 | lista dostępnych zadań         |
+| ~/todos/<int:pk>        | GET jedno zadanie z podanym id |
+| ~/todos/<int:pk>        | PUT tworzenie zadania          |
+| ~/todos/<int:pk>/update | aktualizacja zadania           |
+| ~/todos/<int:pk>/delete | usuwanie zadania               |
 
 **Grupa** jest to "kategoria" użytkowników.
 na ten moment służy wyłącznie w celach poglądowych z powodów w.w.
