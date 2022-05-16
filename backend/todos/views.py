@@ -16,3 +16,11 @@ class TodoListCreateAPIView(generics.ListCreateAPIView):
 class TodoDetailAPIView(generics.RetrieveAPIView):
     queryset = Todo.objects.all()
     serializer_class = TodoSerializer
+
+
+class TodoUpdateAPIView(generics.UpdateAPIView):
+    queryset = Todo.objects.all()
+    serializer_class = TodoSerializer
+
+    def perform_update(self, serializer):
+        instance = serializer.save()
