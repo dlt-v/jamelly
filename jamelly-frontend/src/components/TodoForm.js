@@ -1,51 +1,52 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 
-function TodoForm(props) {
-  const [input, setInput] = useState(props.edit ? props.edit.value : "");
-
-  const inputRef = useRef(null);
-
+const TodoForm = ({ setInputText, todos, inputText, setTodos, setStatus }) => {
   const [id, setId] = useState(0);
 
-  const giveId = () => {
+  const giveId = (e) => {
     setId(id + 1);
     return id;
   };
 
-  useEffect(() => {
-    inputRef.current.focus();
-  });
-
-  const handleChange = (e) => {
-    setInput(e.target.value);
+  const inputTextHandler = (e) => {
+    setInputText(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const submitTodoHandler = (e) => {
     e.preventDefault();
+    if(inputText === "" || /^\s*$/.test(inputText)){
+      return;
+    }
 
-    props.onSubmit({
-      id: giveId(),
-      text: input,
-    });
+    setTodos([...todos, { text: inputText, completed: false, id: giveId() }]);
+    setInputText("");
+  };
 
-    setInput("");
+  const statusHandler = (e) => {
+    setStatus(e.target.value);
   };
 
   return (
-    <form id="todoform" onSubmit={handleSubmit}>
+    <form id="todoform">
       <input
-        id="todoinput"
+        value={inputText}
+        onChange={inputTextHandler}
         type="text"
-        placeholder="Add a todo"
-        value={input}
-        name="text"
         className="todo-input"
-        onChange={handleChange}
-        ref={inputRef}
+        placeholder="Add a todo"
       />
-      <button id="AddToDo">+</button>
+      <button onClick={submitTodoHandler} className="todo-button" type="submit">
+        <p id="plus">+</p>
+      </button>
+      <div className="select">
+        <select onChange={statusHandler} name="todos" className="filter-todo">
+          <option value="all">All</option>
+          <option value="completed">Completed</option>
+          <option value="uncompleted">Uncompleted</option>
+        </select>
+      </div>
     </form>
   );
-}
+};
 
 export default TodoForm;
