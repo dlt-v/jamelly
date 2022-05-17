@@ -43,6 +43,8 @@ W konsoli powinienieś widzieć wszelkie operacje jakie dotyczą serwera.
 Serwer udostępnia interfejs [REST](https://restfulapi.net/) do manipulowania danymi.
 `~` - dynamiczny root URL serwera. Podczas pracy najpewniej `http://localhost:8000`.
 
+![Wstępny koncept architektury modelu bazy danych.](https://cdn.discordapp.com/attachments/951023586079039518/969570609677865000/unknown.png 'Wstępny koncept architektury modelu bazy danych.').
+
 **Snippety** to są pojedyńcze notatki, które znajdują się w zeszycie.
 Na ten moment są one oddzielne z powodu braku walidacji i przypisania zeszytów poszczególnym użytkownikom.
 
