@@ -5,12 +5,14 @@ from .serializers import TodoSerializer
 
 
 class TodoListCreateAPIView(generics.ListCreateAPIView):
+    authentication_classes = [
+        authentication.SessionAuthentication,
+        authentication.TokenAuthentication
+    ]
+    # only have access to view stuff, but you can't edit if you're not logged in.
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Todo.objects.all()
     serializer_class = TodoSerializer
-
-    def perform_create(self, serializer):
-        title = serializer.validated_data.get('name')
-        serializer.save()
 
 
 class TodoDetailAPIView(generics.RetrieveAPIView):
@@ -22,6 +24,12 @@ class TodoUpdateAPIView(generics.UpdateAPIView):
     queryset = Todo.objects.all()
     serializer_class = TodoSerializer
 
+    authentication_classes = [
+        authentication.SessionAuthentication,
+        authentication.TokenAuthentication
+    ]
+    permission_classes = [permissions.IsAuthenticated]
+
     def perform_update(self, serializer):
         instance = serializer.save()
 
@@ -29,6 +37,12 @@ class TodoUpdateAPIView(generics.UpdateAPIView):
 class TodoDeleteAPIView(generics.DestroyAPIView):
     queryset = Todo.objects.all()
     serializer_class = TodoSerializer
+
+    authentication_classes = [
+        authentication.SessionAuthentication,
+        authentication.TokenAuthentication
+    ]
+    permission_classes = [permissions.IsAuthenticated]
 
     def perform_destroy(self, instance):
         super().perform_destroy(instance)
