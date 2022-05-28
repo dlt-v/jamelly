@@ -601,6 +601,98 @@ a {
   border-radius: 20px;
 }
 
+/* Notebook rzeczy */
+#NotebookSpace {
+  position: absolute;
+  width: 100vh;
+  height: 80%;
+  left: calc(50% - 541px / 2 + 0.5px);
+  top: calc(50% - 90px / 2 - 281px);
+  background: #6A6A6A;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* SIDEBAR STYLES */
+#Sidebar {
+  width: 27%;
+  height: 100vh;
+  border-right: 1px solid #ddd;
+}
+#Sidebar-Header {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;}
+#Sidebar-Header h1 {
+  margin: 0;
+}
+#Sidebar-Header button{
+  color: #ddd;
+  background-color: #373737;
+  border: none;
+  margin-right: 7%;
+}
+#All-Notes-Sidebar {
+  height: calc(100vh - 78px);
+  overflow-y: scroll;
+}
+#Note-Sidebar {
+  padding: 25px;
+  cursor: pointer;
+}
+#Note-Title {
+  display: flex;
+  justify-content: space-between;
+}
+.Note-Sidebar button {
+  color: crimson;
+  background-color: transparent;
+  border: none;
+}
+.Note-Sidebar p {
+  margin: 10px 0;
+}
+.Note-Sidebar small {
+  display: block;
+  color: #999;
+}
+
+.Note-Sidebar:hover {
+  background: #ddd;
+}
+.Note-Sidebar.active,
+.Note-Sidebar.active small {
+  background: #6A6A6A;
+  color: white;
+}
+/* Pole tekstowe edycja */
+.app-main-note-edit {
+  padding: 25px;
+}
+
+#NoteEdit input,
+textarea {
+  display: block;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  width: 90%;
+  height: calc(50vh - 130px);
+  padding: 10px;
+  resize: none;
+  font-size: inherit;
+  font-family: inherit;
+  background: #6A6A6A;
+  margin-left: 3.5%;
+}
+#NoteEdit input {
+  height: 50px;
+  font-size: 2rem;
+  color: black;
+  background: #6A6A6A;
+  border: 1px solid #ddd;
+}
+/* koniec Notebook rzeczy */
+
+
 #SettingChoice {
   font-family: "Roboto", sans-serif;
   color: white;
