@@ -5,6 +5,7 @@ import uuid from "react-uuid";
 
 import Sidebar from "../components/Notebook-Sidebar";
 import Main from "../components/Notebook-Main";
+import { useEffect } from "react";
 
 function NotebookPage() {
   const [notes, setNotes] = useState(
@@ -13,6 +14,9 @@ function NotebookPage() {
 
   const [activeNote, setActiveNote] = useState(false);
 
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(notes));
+  }, [notes])
 
   const onAddNote = () => {
     const newNote = {
@@ -31,7 +35,7 @@ function NotebookPage() {
 
   const onUpdateNote = (updatedNote) => {
     const updatedNotesArr = notes.map((note) => {
-      if (note.id === updatedNote.id) {
+      if (note.id === activeNote) {
         return updatedNote;
       }
 
@@ -61,7 +65,7 @@ function NotebookPage() {
         setActiveNote={setActiveNote}
       />
 
-      <Main activeNote={getActiveNote()} />
+      <Main activeNote={getActiveNote()} onUpdateNote={onUpdateNote} />
     </motion.div>
   );
 }
