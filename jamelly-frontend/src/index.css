@@ -437,10 +437,10 @@ a {
   color: #ffffff;
 }
 
-#plus{
-  position:absolute;
+#plus {
+  position: absolute;
   right: calc(50% - 15px / 2);
-  top: calc(50% - 75px/ 2);
+  top: calc(50% - 75px / 2);
 }
 
 .todo-button:hover {
@@ -523,7 +523,6 @@ a {
   color: rgba(255, 255, 255, 0.5);
 }
 
-
 .todo-list {
   min-width: 30%;
   list-style: none;
@@ -546,7 +545,6 @@ a {
 .filter-todo {
   padding: 1rem;
   border-radius: 20px;
-  
 }
 .todo li {
   flex: 1;
@@ -561,13 +559,11 @@ a {
   padding: 0.75rem;
   cursor: pointer;
   font-size: 1rem;
-
 }
 
 .todo-item {
   padding: 0rem 0.5rem;
 }
-
 
 #NotebookPlaceholder {
   position: absolute;
@@ -601,10 +597,143 @@ a {
   border-radius: 20px;
 }
 
-#SettingChoice {
+/* SIDEBAR STYLES */
+
+.NotebookMain {
+  display: flex;
+  height: 90vh;
   font-family: "Roboto", sans-serif;
   color: white;
-  font-weight: 400;
-  font-size: 24px;
-  padding: 5px;
+}
+
+.app-sidebar {
+  width: 25%;
+  height: 92.9vh;
+  border-right: 1px solid #ddd;
+}
+
+.app-sidebar button {
+  background: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  color: rgb(0, 204, 51);
+}
+.app-sidebar button:hover {
+  filter: brightness(1.5);
+}
+
+.app-sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+}
+.app-sidebar-header h1 {
+  margin: 0;
+}
+
+.app-sidebar-notes {
+  height: calc(92vh - 78px);
+  overflow-y: scroll;
+}
+.app-sidebar-note {
+  padding: 25px;
+  cursor: pointer;
+}
+.sidebar-note-title {
+  display: flex;
+  justify-content: space-between;
+}
+.app-sidebar-note button {
+  color: #007FA9;
+}
+.app-sidebar-note p {
+  margin: 10px 0;
+}
+.app-sidebar-note small {
+  display: block;
+  color: #999;
+}
+
+.app-sidebar-note:hover {
+  background: #6A6A6A;
+  transition: filter 300ms;
+}
+.app-sidebar-note.active,
+.app-sidebar-note.active small {
+  background: #E82525;
+  color: white;
+}
+
+/* NOTE EDITOR/PREVIEW (MAIN) STYLES */
+
+.app-main {
+  width: 78%;
+  height: 30vh;
+}
+.app-main-note-edit,
+.app-main-note-preview {
+  font-family: "Roboto", sans-serif;
+  height: 47vh;
+  color: white;
+}
+
+.no-active-note {
+  width: 70%;
+  height: 92vh;
+  line-height: 92vh;
+  text-align: center;
+  font-size: 2rem;
+  color: #999;
+}
+
+/* Editing */
+.app-main-note-edit {
+  padding: 25px;
+}
+
+.app-main-note-edit input,
+textarea {
+  display: block;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  color: white;
+  background-color: #6A6A6A;
+  width: 100%;
+  height: calc(50vh - 130px);
+  padding: 10px;
+  resize: none;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.app-main-note-edit textarea ::placeholder{
+  color: white;
+}
+
+.app-main-note-edit input {
+  height: 50px;
+  font-size: 2rem;
+}
+
+/* Preview */
+.app-main-note-preview {
+  height: 36vh;
+  border-top: 1px solid #ddd;
+  overflow-y: scroll;
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.preview-title {
+  padding: 25px 25px 0 25px;
+  margin: 0;
+}
+
+.markdown-preview {
+  padding: 0 25px 25px 25px;
+  font-size: 1rem;
+  line-height: 2rem;
 }
