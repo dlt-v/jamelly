@@ -623,7 +623,7 @@ a {
   color: rgb(0, 204, 51);
 }
 .app-sidebar button:hover {
-  color: rgb(0, 255, 0);
+  filter: brightness(1.5);
 }
 
 .app-sidebar-header {
@@ -648,7 +648,7 @@ a {
   justify-content: space-between;
 }
 .app-sidebar-note button {
-  color: #e82525;
+  color: #007FA9;
 }
 .app-sidebar-note p {
   margin: 10px 0;
