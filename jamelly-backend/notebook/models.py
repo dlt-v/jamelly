@@ -19,3 +19,4 @@ class NoteSnippet(models.Model):
 
     class Meta:
         ordering = ['created_at']
+        
