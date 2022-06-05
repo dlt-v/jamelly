@@ -1,4 +1,3 @@
-from notebook import serializers
 from notebook.models import Notebook, NoteSnippet
 from notebook.serializers import NotebookSerializer, NoteSnippetSerializer
 from django.http import Http404
