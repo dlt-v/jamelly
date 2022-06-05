@@ -1,8 +1,15 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 function WelcomeSite(props) {
   return (
-    <div clasName="Welcome">
+    <motion.div
+      className="Welcome"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{duration: 0.5}}
+    >
       <h1>
         <p id="Jam2">Jam</p>
         <p id="elly2">elly</p>
@@ -15,7 +22,7 @@ function WelcomeSite(props) {
           <i>smarter</i>
         </p>
       </h2>
-    </div>
+    </motion.div>
   );
 }
 

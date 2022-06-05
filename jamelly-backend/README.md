@@ -3,7 +3,6 @@
 ### Tomasz Michalski - ID06IO1 - 19012
 
 Stan na dzień 05.06.2022
-Uwaga: API jest cały czas rozwijane i jego stan może ulec zmianie.
 
 ## Instalacja
 
