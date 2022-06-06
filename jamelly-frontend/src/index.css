@@ -601,7 +601,7 @@ a {
 
 .NotebookMain {
   display: flex;
-  height: 90vh;
+  height: 89vh;
   font-family: "Roboto", sans-serif;
   color: white;
 }
@@ -646,7 +646,7 @@ a {
 }
 
 .app-sidebar-notes {
-  height: calc(92vh - 78px);
+  height: calc(92vh - 82px);
   overflow-y: scroll;
 }
 .app-sidebar-note {
