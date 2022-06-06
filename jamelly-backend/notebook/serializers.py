@@ -27,6 +27,8 @@ class NotebookSerializer(serializers.ModelSerializer):
 
 
 class NoteSnippetSerializer(serializers.ModelSerializer):
+    notebook_id = serializers.ReadOnlyField(source='notebook_id.id')
+
     class Meta:
         model = NoteSnippet
-        fields = ['id', 'content', 'created_at']
+        fields = ['id', 'content', 'created_at', 'notebook_id']

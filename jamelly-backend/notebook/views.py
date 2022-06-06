@@ -6,6 +6,8 @@ from django.contrib.auth.models import User
 from notebook.serializers import UserSerializer
 
 from rest_framework import permissions
+from rest_framework.response import Response
+from rest_framework import status
 
 
 # For Users
@@ -44,6 +46,14 @@ class NoteSnippetList(generics.ListCreateAPIView):
     queryset = NoteSnippet.objects.all()
     serializer_class = NoteSnippetSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+    def perform_create(self, serializer):
+        try:
+            notebook = Notebook.objects.get(
+                pk=self.request.data.get('notebook_id'))
+            serializer.save(notebook_id=notebook)
+        except:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class NoteSnippetDetail(generics.RetrieveUpdateDestroyAPIView):
