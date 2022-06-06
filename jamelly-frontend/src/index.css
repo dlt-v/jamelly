@@ -607,20 +607,29 @@ a {
 }
 
 .app-sidebar {
-  width: 25%;
+  width: 30%;
   height: 92.9vh;
   border-right: 1px solid #ddd;
 }
 
 .app-sidebar button {
-  background: none;
-  border: 0;
-  margin: 0;
-  padding: 0;
-  font-size: inherit;
-  font-family: inherit;
+  border: none;
+  align-items: left;
   cursor: pointer;
-  color: rgb(0, 204, 51);
+  background: #00af7b;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  margin-right: 12px;
+
+  /*+*/
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  color: white; 
+  
 }
 .app-sidebar button:hover {
   filter: brightness(1.5);
@@ -633,6 +642,7 @@ a {
 }
 .app-sidebar-header h1 {
   margin: 0;
+  color: #e82525;
 }
 
 .app-sidebar-notes {
@@ -642,13 +652,29 @@ a {
 .app-sidebar-note {
   padding: 25px;
   cursor: pointer;
+  background-color:  #6a6a6a;
+  border-radius: 20px;
+  border: 1px solid #373737;
+  color: white;
+  font-weight: bold;
 }
 .sidebar-note-title {
   display: flex;
   justify-content: space-between;
 }
 .app-sidebar-note button {
-  color: #007FA9;
+  font-size: inherit;
+  font-family: inherit;
+  font-style: italic;
+  background: #e82525;
+  width: 75px;
+  height: 30px;
+  border-radius: 0px;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25);
+  margin-right: -10px;
+}
+.app-sidebar-note button:hover{
+  background-color: rgb(180, 64, 43);
 }
 .app-sidebar-note p {
   margin: 10px 0;
@@ -659,13 +685,16 @@ a {
 }
 
 .app-sidebar-note:hover {
-  background: #6A6A6A;
+  background: #4d4d4d;
   transition: filter 300ms;
 }
 .app-sidebar-note.active,
 .app-sidebar-note.active small {
-  background: #E82525;
+  background: #242526;
   color: white;
+}
+#body::placeholder{
+  color: #999;
 }
 
 /* NOTE EDITOR/PREVIEW (MAIN) STYLES */
@@ -678,7 +707,7 @@ a {
 .app-main-note-preview {
   font-family: "Roboto", sans-serif;
   height: 47vh;
-  color: white;
+  color: #999;
 }
 
 .no-active-note {
@@ -699,6 +728,7 @@ a {
 textarea {
   display: block;
   border: 1px solid #ddd;
+  border-radius: 5px;
   margin-bottom: 20px;
   color: white;
   background-color: #6A6A6A;
