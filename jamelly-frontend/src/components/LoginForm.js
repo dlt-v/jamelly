@@ -24,7 +24,7 @@ function LoginForm({ Login, error }) {
             type="email"
             name="email"
             id="email"
-            placeholder="email adress"
+            placeholder="e-mail address"
             onChange={(e) => setDetails({ ...details, email: e.target.value })}
             value={details.email}
           />
