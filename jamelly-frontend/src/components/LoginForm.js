@@ -13,6 +13,7 @@ function LoginForm({ Login, error }) {
 
   return (
     <form onSubmit={submitHandler}>
+      <button href="Register.js" id="register">Register</button>
       <h1>
         <p id="Jam">Jam</p>
         <p id="elly">elly</p>
@@ -46,7 +47,7 @@ function LoginForm({ Login, error }) {
         </div>
       </div>
       <h6>
-        <a href="/ForgotPassword">Forgot password?</a>
+        <a href="Forgotpassword.js">Forgot password?</a>
       </h6>
     </form>
   );

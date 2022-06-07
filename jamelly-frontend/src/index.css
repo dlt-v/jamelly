@@ -195,6 +195,29 @@ input {
   line-height: 19px;
   color: #ffffff;
 }
+#register {
+  position: absolute;
+  width: 126px;
+  height: 49px;
+  left: calc(50% + 1650px / 2);
+  top: calc(50% - 1090px / 2 + 76.5px);
+
+  background: #e82525;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  border: none;
+
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+
+  color: #ffffff;
+}
+
+#register:hover {
+  filter: brightness(1.2);
+}
 
 /*Przycisk Logowania, formatowanie boxu i tekstu w nim*/
 #Login {
@@ -628,8 +651,7 @@ a {
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
-  color: white; 
-  
+  color: white;
 }
 .app-sidebar button:hover {
   filter: brightness(1.5);
@@ -652,7 +674,7 @@ a {
 .app-sidebar-note {
   padding: 25px;
   cursor: pointer;
-  background-color:  #6a6a6a;
+  background-color: #6a6a6a;
   border-radius: 20px;
   border: 1px solid #373737;
   color: white;
@@ -673,7 +695,7 @@ a {
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25);
   margin-right: -10px;
 }
-.app-sidebar-note button:hover{
+.app-sidebar-note button:hover {
   background-color: rgb(180, 64, 43);
 }
 .app-sidebar-note p {
@@ -693,7 +715,7 @@ a {
   background: #242526;
   color: white;
 }
-#body::placeholder{
+#body::placeholder {
   color: #999;
 }
 
@@ -731,7 +753,7 @@ textarea {
   border-radius: 5px;
   margin-bottom: 20px;
   color: white;
-  background-color: #6A6A6A;
+  background-color: #6a6a6a;
   width: 100%;
   height: calc(50vh - 130px);
   padding: 10px;
@@ -740,7 +762,7 @@ textarea {
   font-family: inherit;
 }
 
-.app-main-note-edit textarea ::placeholder{
+.app-main-note-edit textarea ::placeholder {
   color: white;
 }
 
