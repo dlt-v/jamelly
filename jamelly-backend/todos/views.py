@@ -1,8 +1,8 @@
 
-from django.shortcuts import render
 from rest_framework import generics, permissions, status
 from todos.models import Todo
 from todos.serializers import TodoSerializer
+from notebook.permissions import IsOwner
 
 
 class TodoList(generics.ListCreateAPIView):
@@ -17,4 +17,4 @@ class TodoList(generics.ListCreateAPIView):
 class TodoDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Todo.objects.all()
     serializer_class = TodoSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [IsOwner]
