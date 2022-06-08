@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from notebook.models import Notebook, NoteSnippet
+from todos.models import Todo
 from django.contrib.auth.models import User
 
 
@@ -7,6 +8,10 @@ class UserSerializer(serializers.ModelSerializer):
     notebooks = serializers.PrimaryKeyRelatedField(
         many=True,
         queryset=Notebook.objects.all()
+    )
+    todos = serializers.PrimaryKeyRelatedField(
+        many=True,
+        queryset=Todo.objects.all()
     )
 
     class Meta:
