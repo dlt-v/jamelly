@@ -1,13 +1,9 @@
 from notebook.models import Notebook, NoteSnippet
-from notebook.serializers import NotebookSerializer, NoteSnippetSerializer
-from rest_framework import generics
+from notebook.serializers import NotebookSerializer, NoteSnippetSerializer, UserSerializer
+from rest_framework import generics, permissions, status
 
 from django.contrib.auth.models import User
-from notebook.serializers import UserSerializer
-
-from rest_framework import permissions
 from rest_framework.response import Response
-from rest_framework import status
 
 
 # For Users
