@@ -15,10 +15,25 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework.reverse import reverse
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+
+
+@api_view(['GET'])
+def api_root(request, format=None):
+    return Response({
+        'users': reverse('user-list', request=request, format=format),
+        'notebooks': reverse('notebook-list', request=request, format=format),
+        'note-snippets': reverse('notesnippet-list', request=request, format=format),
+        'todos': reverse('todo-list', request=request, format=format),
+    })
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('rest_framework.urls')),
+    path('', api_root),
     path('', include('notebook.urls')),
     path('', include('todos.urls')),
 ]
