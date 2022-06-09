@@ -2,7 +2,7 @@
 
 ### Tomasz Michalski - ID06IO1 - 19012
 
-Stan na dzień 05.06.2022
+Stan na dzień 10.06.2022
 
 ## Instalacja
 
@@ -44,36 +44,69 @@ Serwer udostępnia interfejs [REST](https://restfulapi.net/) do manipulowania da
 
 ![Wstępny koncept architektury modelu bazy danych.](https://cdn.discordapp.com/attachments/951023586079039518/969570609677865000/unknown.png 'Wstępny koncept architektury modelu bazy danych.').
 
-**Snippety** to są pojedyńcze notatki, które znajdują się w zeszycie.
-Na ten moment są one oddzielne z powodu braku walidacji i przypisania zeszytów poszczególnym użytkownikom.
+**Notebooki** są to organizery notatek dla pojedynczego użytkownika. Mogą być one kategoryzowane wszelako.
+Notebook jest przypisany pojedynczemu użytkownikowi oraz nie posiada limitu note-snippetów.
 
-| Ścieżka                    | Opis                           |
+| Ścieżka              | Opis             |
+| -------------------- | ---------------- |
+| ~/notebooks/         | GET, POST        |
+| ~/notebooks/<int:pk> | GET, PUT, DELETE |
+
+Pola modelu `notebook`:
+| Pole | Opis |
 | -------------------------- | ------------------------------ |
-| ~/snippets                 | lista dostępnych snippetów     |
-| ~/snippets/<int:pk>        | GET jeden snippet z podanym id |
-| ~/snippets/<int:pk>        | PUT utworzenie snippeta        |
-| ~/snippets/<int:pk>/update | aktualizacja snippeta          |
-| ~/snippets/<int:pk>/delete | usuwanie snippeta              |
+| id | auto |
+| created_at | auto |
+| name | txt(50), required |
+| owner_id | auto |
 
-**Todo** jest to zadanie z bazową treścią.
-Następny plan jest łączenie zadań w "projekty".
+**Note-Snippety** są pojedynczymi fragmentami notatek w postaci tekstu.
+Limit znaków jest ustawiony na 1000 ale może uledz zmianie.
 
-| Ścieżka                 | Opis                           |
-| ----------------------- | ------------------------------ |
-| ~/todos                 | lista dostępnych zadań         |
-| ~/todos/<int:pk>        | GET jedno zadanie z podanym id |
-| ~/todos/<int:pk>        | PUT tworzenie zadania          |
-| ~/todos/<int:pk>/update | aktualizacja zadania           |
-| ~/todos/<int:pk>/delete | usuwanie zadania               |
+| Ścieżka                 | Opis             |
+| ----------------------- | ---------------- |
+| ~/notesnippets/         | GET, POST        |
+| ~/notesnippets/<int:pk> | GET, PUT, DELETE |
 
-**Grupa** jest to "kategoria" użytkowników.
-na ten moment służy wyłącznie w celach poglądowych z powodów w.w.
+Pola modelu `note-snippet`:
+| Pole | Opis |
+| -------------------------- | ------------------------------ |
+| id | auto |
+| content | txt(1000), required |
+| notebook_id | int, required |
 
-| Ścieżka                  | Opis                     |
-| ------------------------ | ------------------------ |
-| ~/groups                 | lista dostępnych grup    |
-| ~/groups/<int:pk>        | jedna grupa z podanym id |
-| ~/groups/<int:pk>/update | aktualizacja grupy       |
-| ~/groups/<int:pk>/delete | usuwanie grupy           |
+**Todo** są zadaniami do zrobienia wyznaczanymi przez użytkownika.
+Klient może aktualizować todo podczas pracy.
+
+| Ścieżka          | Opis             |
+| ---------------- | ---------------- |
+| ~/todos/         | GET, POST        |
+| ~/todos/<int:pk> | GET, PUT, DELETE |
+
+Pola modelu `todo`:
+| Pole | Opis |
+| -------------------------- | ------------------------------ |
+| id | auto |
+| created_at | auto |
+| name | txt(80), required |
+| content | txt(80), required |
+| status | txt(enum, (ACT, CAN, FIN), required |
+| owner_id | auto |
+
+**Users** jest modelem reprezentującym użytkownika.
+
+| Ścieżka     | Opis |
+| ----------- | ---- |
+| ~/users/    | GET  |
+| ~/register/ | POST |
+| ~/auth/     | POST |
+
+Pola modelu `User` zawarte w [dokumentacji](https://docs.djangoproject.com/en/4.0/ref/contrib/auth/#user-model).
+
+**Tworzenie użytkownika** wymaga pól username, email, password i password2 (hasła są porównywane na serwerze).
+**Pozyskiwanie tokenu** wymaga pól username oraz password.
+Do operacji edycji oraz tworzenia należy przypisać do zapytania header `"Authorization"` z wartością `"Token x"`, gdzie x jest tokenem pozyskiwanym linię wyżej.
+
+Dla przykładu operacji interfejsu REST można zajrzeć na workspace Postman'a [tutaj](https://www.postman.com/dlt-v/workspace/f8c000a2-0b95-47cd-8075-85943a2b8a40/overview).
 
 **Zawartość bazy danych nie jest zapisywana.**
