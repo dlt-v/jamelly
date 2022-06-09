@@ -26,7 +26,8 @@ class NotebookList(generics.ListCreateAPIView):
     queryset = Notebook.objects.all()
     serializer_class = NotebookSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    authentication_classes = [authentication.TokenAuthentication]
+    authentication_classes = [
+        authentication.TokenAuthentication, authentication.SessionAuthentication]
 
     def perform_create(self, serializer):
         serializer.save(owner_id=self.request.user)
@@ -35,7 +36,7 @@ class NotebookList(generics.ListCreateAPIView):
 class NotebookDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Notebook.objects.all()
     serializer_class = NotebookSerializer
-    permission_classes = [IsOwner]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [authentication.TokenAuthentication]
 
 
