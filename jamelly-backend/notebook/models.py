@@ -20,7 +20,8 @@ class NoteSnippet(models.Model):
     notebook_id = models.ForeignKey(
         Notebook,
         related_name='note_snippets',
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        blank=False
     )
 
     class Meta:
