@@ -27,6 +27,7 @@ def api_root(request, format=None):
         'notebooks': reverse('notebook-list', request=request, format=format),
         'note-snippets': reverse('notesnippet-list', request=request, format=format),
         'todos': reverse('todo-list', request=request, format=format),
+        'register': reverse('register', request=request, format=format),
     })
 
 
@@ -36,4 +37,5 @@ urlpatterns = [
     path('', api_root),
     path('', include('notebook.urls')),
     path('', include('todos.urls')),
+    path('', include('users.urls')),
 ]
