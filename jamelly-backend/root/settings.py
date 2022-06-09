@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'notebook',
     'todos',
-    'django_extensions'
+    'users',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
