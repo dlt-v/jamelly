@@ -1,3 +1,23 @@
-from django.shortcuts import render
+from users.serializers import RegistrationSerializer
+from rest_framework.decorators import permission_classes
+from rest_framework.permissions import AllowAny
+from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
 
-# Create your views here.
+
+@api_view(['POST'])
+def registration_view(request):
+    if request.method == 'POST':
+        serializer = RegistrationSerializer(data=request.data)
+        data = {}
+
+        if serializer.is_valid():
+            new_user = serializer.save()
+            data['response'] = 'Successfully registered new user.'
+            data['email'] = new_user.email
+            data['username'] = new_user.username
+        else:
+            data = serializer.errors
+
+        return Response(data)
