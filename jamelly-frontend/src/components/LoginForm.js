@@ -13,6 +13,7 @@ function LoginForm({ Login, error }) {
 
   return (
     <form onSubmit={submitHandler}>
+      <button href="Register.js" id="register">Register</button>
       <h1>
         <p id="Jam">Jam</p>
         <p id="elly">elly</p>
@@ -24,7 +25,7 @@ function LoginForm({ Login, error }) {
             type="email"
             name="email"
             id="email"
-            placeholder="adres email"
+            placeholder="e-mail address"
             onChange={(e) => setDetails({ ...details, email: e.target.value })}
             value={details.email}
           />
@@ -34,7 +35,7 @@ function LoginForm({ Login, error }) {
             type="password"
             name="password"
             id="password"
-            placeholder="hasło"
+            placeholder="password"
             onChange={(e) =>
               setDetails({ ...details, password: e.target.value })
             }
@@ -42,11 +43,11 @@ function LoginForm({ Login, error }) {
           />
         </div>
         <div>
-          <input type="submit" value="Zaloguj" id="Login" />
+          <input type="submit" value="Login" id="Login" />
         </div>
       </div>
       <h6>
-        <a href="/ForgotPassword">Zapomniałeś hasła?</a>
+        <a href="Forgotpassword.js">Forgot password?</a>
       </h6>
     </form>
   );
