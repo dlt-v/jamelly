@@ -10,7 +10,7 @@ import { ReactComponent as Settingsico } from "./icons/settings-svgrepo-com.svg"
 import { ReactComponent as Tasksico } from "./icons/tasks-svgrepo-com.svg";
 
 import React, { useEffect, useState } from "react";
-
+var token =""
 function App() {
   //Domyślny admin
   const adminUser = {
@@ -19,32 +19,59 @@ function App() {
     username: "Admin",
   };
 
+
   //pobieramy dane od użytkownika
-  const [user, setUser] = useState({ email: "", password: "" });
+  const [user, setUser] = useState({ username: "", password: "", token: "", loggedIn: false });
   //jeśli dane są nieprawidłowe, to wyrzucamy mu error
   const [error, setError] = useState("");
 
   // funkcja logowania
-  const Login = (details) => {
-    if (
-      details.email == adminUser.email &&
-      details.password == adminUser.password
-    ) {
-      console.log("Logged in!");
-      setUser({
-        email: details.email,
+  const Login = async (details) => {
+    //if (
+    //details.email == adminUser.email &&
+    //details.password == adminUser.password
+    let isLoggedIn = false;
+    const response = await fetch("http://127.0.0.1:8000/auth/", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        //Accept: "application/json",
+      },
+      body: JSON.stringify({
+        username: details.username,
         password: details.password,
-        username: adminUser.username,
-      });
-    } else {
-      console.log("Details do not match!");
-      setError("Błędne dane");
-    }
+      }),
+    }).then(response => response.json())
+    .then(data => {token = data.token
+    if (token) isLoggedIn = true;
+    
+    })
+    .catch((error) => console.log(error));
+
+    if (isLoggedIn){
+        console.log("Logged in!");
+
+
+
+        setUser({
+          email: details.email,
+          password: details.password,
+          username: details.username,
+          loggedIn: true,
+          token: token
+        });
+        console.log(`User is ${details.username}\nToken is ${token}`);
+      } else {
+        console.log("Details do not match!");
+        setError("Błędne dane");
+      }
+    
   };
+  // ) 
 
   //funkcja wylogowania
   const Logout = () => {
-    setUser({ email: "", password: "" });
+    setUser({ username: "", password: "", loggedIn: false, token: "" });
   };
 
   function Navbar(props) {
@@ -102,7 +129,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        {user.email != "" ? ( // jeśli pole email nie jest puste
+        {user.username != "" ? ( // jeśli pole email nie jest puste
           // wyświetlamy tymczasowo opcję powitania z możliwością wylogowania
           <div className="Welcome">
             <Navbar>
@@ -110,7 +137,7 @@ function App() {
                 <DropdownMenu />
               </NavItem>
             </Navbar>
-            <AnimatedRoutes />
+              <AnimatedRoutes token={token} />
             <button id="logout" onClick={Logout}>
               Logout
             </button>

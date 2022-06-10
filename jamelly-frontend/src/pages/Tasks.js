@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import TodoForm from "../components/TodoForm";
 import TodoList from "../components/TodoList";
 
-function TasksPage() {
+function TasksPage({token}) {
   const [inputText, setInputText] = useState("");
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState("all");
@@ -49,6 +49,25 @@ function TasksPage() {
     }
   };
 
+  const saveRemoteTodos = async () => {
+
+    todos.forEach(todo => {
+      fetch("http://localhost:8000/todos/", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+          Accept: "application/json",
+          Authorization: `Token ${token}`
+        },
+  
+        body: JSON.stringify({
+          name: todo,
+          }),
+      });
+    })
+    
+  };
+
   return (
     <motion.div
       className="ToDoListMain"
@@ -64,6 +83,7 @@ function TasksPage() {
         inputText={inputText}
         setInputText={setInputText}
         setStatus={setStatus}
+        token = {token}
       />
       <TodoList
         setTodos={setTodos}

@@ -3,7 +3,7 @@ import ForgotPassword from "../pages/ForgotPassword";
 
 
 function LoginForm({ Login, error }) {
-  const [details, setDetails] = useState({ email: "", password: "" });
+  const [details, setDetails] = useState({ username: "", password: "" });
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -22,11 +22,11 @@ function LoginForm({ Login, error }) {
         {error != "" ? <div id="error">{error}</div> : ""}
         <div id="Rectangle1">
           <input
-            type="email"
+            type="text"
             name="email"
             id="email"
-            placeholder="e-mail address"
-            onChange={(e) => setDetails({ ...details, email: e.target.value })}
+            placeholder="username"
+            onChange={(e) => setDetails({ ...details, username: e.target.value })}
             value={details.email}
           />
         </div>
