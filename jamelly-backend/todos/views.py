@@ -9,7 +9,8 @@ class TodoList(generics.ListCreateAPIView):
     queryset = Todo.objects.all()
     serializer_class = TodoSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    authentication_classes = [authentication.TokenAuthentication]
+    authentication_classes = [
+        authentication.TokenAuthentication, authentication.SessionAuthentication]
 
     def perform_create(self, serializer):
         serializer.save(owner_id=self.request.user)
@@ -18,5 +19,5 @@ class TodoList(generics.ListCreateAPIView):
 class TodoDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Todo.objects.all()
     serializer_class = TodoSerializer
-    permission_classes = [IsOwner]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [authentication.TokenAuthentication]
