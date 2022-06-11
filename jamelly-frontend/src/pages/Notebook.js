@@ -7,10 +7,15 @@ import Sidebar from "../components/Notebook-Sidebar";
 import Main from "../components/Notebook-Main";
 import { useEffect } from "react";
 
-function NotebookPage() {
+function NotebookPage({user, token}) {
   const [notes, setNotes] = useState(
     localStorage.notes ? JSON.parse(localStorage.notes) : []
-  );
+  )
+    
+    // notebooks.forEach(notebook => {
+    //   if notebook.id = 
+    // });
+
 
   const [activeNote, setActiveNote] = useState(false);
 

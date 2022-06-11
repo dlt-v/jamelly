@@ -14,13 +14,13 @@ import Tasks from "../pages/Tasks";
 
 import { AnimatePresence } from "framer-motion";
 
-function AnimatedRoutes({token}) {
+function AnimatedRoutes({token, user}) {
   const location = useLocation();
   return (
     <AnimatePresence>
       <Routes location={location} key={location.pathname}>
         <Route exact path="/" element={<WelcomeSite />}></Route>
-        <Route path="/Notebook" element={<Notebook />}></Route>
+        <Route path="/Notebook" element={<Notebook token={token} user={user}/>}></Route>
         <Route path="/Tasks" element={<Tasks token={token}/>}></Route>
         <Route path="/Settings" element={<Settings />}></Route>
       </Routes>

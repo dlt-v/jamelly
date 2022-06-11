@@ -21,7 +21,7 @@ function App() {
 
 
   //pobieramy dane od użytkownika
-  const [user, setUser] = useState({ username: "", password: "", token: "", loggedIn: false });
+  const [user, setUser] = useState({ userID: -1, username: "", password: "", token: "", loggedIn: false });
   //jeśli dane są nieprawidłowe, to wyrzucamy mu error
   const [error, setError] = useState("");
 
@@ -31,7 +31,7 @@ function App() {
     //details.email == adminUser.email &&
     //details.password == adminUser.password
     let isLoggedIn = false;
-    const response = await fetch("http://127.0.0.1:8000/auth/", {
+    let response = await fetch("http://127.0.0.1:8000/auth/", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -44,9 +44,44 @@ function App() {
     }).then(response => response.json())
     .then(data => {token = data.token
     if (token) isLoggedIn = true;
-    
+      
     })
     .catch((error) => console.log(error));
+    let userList = []
+    let newUserID = -1
+    response =  await fetch("http://127.0.0.1:8000/users/", {
+      method: "GET",
+      header: {
+        "Content-type": "application/json",
+      }
+    }).then(response => response.json())
+    .then(data => {userList = data})
+    userList.forEach(user => {
+      if (user.username == details.username) newUserID = user.id
+    })
+
+
+    let notebooks = {};
+    response = await fetch("http://127.0.0.1:8000/notebooks/", {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+          Accept: "application/json",
+          Authorization: `Token ${token}`
+        }
+      }).then(response => response.json())
+      .then(data => {notebooks = data} )
+        .catch((error) => console.log(error));
+      let hasNotebook = false
+      console.log(user.token);
+      notebooks.forEach(notebook => {
+        if (notebook.owner_id == user.id) {
+          // Zapisz globalnie notebook_id
+        }
+      })
+
+
+
 
     if (isLoggedIn){
         console.log("Logged in!");
@@ -54,6 +89,7 @@ function App() {
 
 
         setUser({
+          userID: newUserID,
           email: details.email,
           password: details.password,
           username: details.username,
@@ -137,7 +173,7 @@ function App() {
                 <DropdownMenu />
               </NavItem>
             </Navbar>
-              <AnimatedRoutes token={token} />
+              <AnimatedRoutes token={token} user={user} />
             <button id="logout" onClick={Logout}>
               Logout
             </button>
