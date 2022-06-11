@@ -23,10 +23,10 @@ function TasksPage({token}) {
   const filterHandler = () => {
     switch (status) {
       case "completed":
-        setFilteredTodos(todos.filter((todo) => todo.completed === true));
+        setFilteredTodos(todos.filter((todo) => todo.status === "FIN"));
         break;
       case "uncompleted":
-        setFilteredTodos(todos.filter((todo) => todo.completed === false));
+        setFilteredTodos(todos.filter((todo) => todo.status === "ACT"));
         break;
       default:
         setFilteredTodos(todos);
@@ -40,33 +40,24 @@ function TasksPage({token}) {
   };
 
   //funkcja pobierająca z dysku nasze todos
-  const getLocalTodos = () => {
-    if (localStorage.getItem("todos") === null) {
-      localStorage.setItem("todos", JSON.stringify([]));
-    } else {
-      let todofromlocal = JSON.parse(localStorage.getItem("todos"));
-      setTodos(todofromlocal);
-    }
-  };
-
-  const saveRemoteTodos = async () => {
-
-    todos.forEach(todo => {
-      fetch("http://localhost:8000/todos/", {
-        method: "POST",
+  const getLocalTodos = async () => {
+    let todofromapi = {}
+    
+      let response = await fetch("http://localhost:8000/todos/", {
+        method: "GET",
         headers: {
           "Content-type": "application/json",
           Accept: "application/json",
           Authorization: `Token ${token}`
-        },
+        }
+      }).then(response => response.json())
+      .then(data => {
+      todofromapi = data})
+      .catch((error) => console.log(error));
   
-        body: JSON.stringify({
-          name: todo,
-          }),
-      });
-    })
-    
+      setTodos(todofromapi)
   };
+
 
   return (
     <motion.div
@@ -89,6 +80,7 @@ function TasksPage({token}) {
         setTodos={setTodos}
         todos={todos}
         filteredTodos={filteredTodos}
+        token = {token}
       />
     </motion.div>
   );
