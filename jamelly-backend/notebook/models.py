@@ -25,7 +25,7 @@ class NoteSnippet(models.Model):
     # )
     owner_id = models.ForeignKey(
         'auth.User',
-        related_name='notebooks',
+        related_name='note_snippets',
         on_delete=models.CASCADE
     )
 

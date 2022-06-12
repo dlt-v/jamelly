@@ -21,14 +21,15 @@ class UserSerializer(serializers.ModelSerializer):
 
 class NotebookSerializer(serializers.ModelSerializer):
     owner_id = serializers.ReadOnlyField(source='owner_id.id')
-    note_snippets = serializers.PrimaryKeyRelatedField(
-        many=True,
-        queryset=NoteSnippet.objects.all()
-    )
+    # note_snippets = serializers.PrimaryKeyRelatedField(
+    #     many=True,
+    #     queryset=NoteSnippet.objects.all()
+    # )
 
     class Meta:
         model = Notebook
-        fields = ['id', 'name', 'created_at', 'owner_id', 'note_snippets']
+        # remember to add 'note_snippets' later on
+        fields = ['id', 'name', 'created_at', 'owner_id']
 
 
 class NoteSnippetSerializer(serializers.ModelSerializer):
