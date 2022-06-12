@@ -48,6 +48,8 @@ class NoteSnippetList(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [authentication.TokenAuthentication]
 
+    def perform_create(self, serializer):
+        serializer.save(owner_id=self.request.user)
     # def perform_create(self, serializer):
     #     try:
     #         notebook = Notebook.objects.get(
