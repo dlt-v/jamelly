@@ -47,6 +47,8 @@ Serwer udostępnia interfejs [REST](https://restfulapi.net/) do manipulowania da
 **Notebooki** są to organizery notatek dla pojedynczego użytkownika. Mogą być one kategoryzowane wszelako.
 Notebook jest przypisany pojedynczemu użytkownikowi oraz nie posiada limitu note-snippetów.
 
+UWAGA: Notebooki są chwilowo wyłączone na potrzeby bazowej implementacji.
+
 | Ścieżka              | Opis             |
 | -------------------- | ---------------- |
 | ~/notebooks/         | GET, POST        |
@@ -63,17 +65,18 @@ Pola modelu `notebook`:
 **Note-Snippety** są pojedynczymi fragmentami notatek w postaci tekstu.
 Limit znaków jest ustawiony na 1000 ale może uledz zmianie.
 
-| Ścieżka                 | Opis             |
-| ----------------------- | ---------------- |
-| ~/notesnippets/         | GET, POST        |
-| ~/notesnippets/<int:pk> | GET, PUT, DELETE |
+| Ścieżka                 | Opis               |
+| ----------------------- | ------------------ |
+| ~/notesnippets/         | GET, POST          |
+| ~/notesnippets/<int:pk> | GET, PATCH, DELETE |
 
 Pola modelu `note-snippet`:
-| Pole | Opis |
-| -------------------------- | ------------------------------ |
-| id | auto |
-| content | txt(1000), required |
-| notebook_id | int, required |
+
+| Pole     | Opis                |
+| -------- | ------------------- |
+| id       | auto                |
+| content  | txt(1000), required |
+| owner_id | auto                |
 
 **Todo** są zadaniami do zrobienia wyznaczanymi przez użytkownika.
 Klient może aktualizować todo podczas pracy.
