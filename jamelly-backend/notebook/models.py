@@ -17,11 +17,16 @@ class Notebook(models.Model):
 class NoteSnippet(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     content = models.CharField(max_length=1000, blank=False)
-    notebook_id = models.ForeignKey(
-        Notebook,
+    # notebook_id = models.ForeignKey(
+    #     Notebook,
+    #     related_name='note_snippets',
+    #     on_delete=models.CASCADE,
+    #     blank=False
+    # )
+    owner_id = models.ForeignKey(
+        'auth.User',
         related_name='note_snippets',
-        on_delete=models.CASCADE,
-        blank=False
+        on_delete=models.CASCADE
     )
 
     class Meta:
