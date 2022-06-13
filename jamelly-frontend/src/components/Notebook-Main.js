@@ -1,12 +1,30 @@
 import ReactMarkdown from "react-markdown";
 
-const Main = ({ activeNote, onUpdateNote }) => {
+const Main = ({ activeNote, onUpdateNote, token }) => {
   const onEditField = (field, value) => {
     onUpdateNote({
       ...activeNote,
       [field]: value,
       lastModified: Date.now(),
     });
+
+  //   fetch("http://127.0.0.1:8000/notesnippets/", {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-type": "application/json",
+  //     Accept: "application/json",
+  //     Authorization: `Token ${token}`
+  //   },
+
+  //   body: JSON.stringify({
+  //     id: activeNote.id,
+  //     content: activeNote.body,
+  //     created_at: activeNote.lastModified,
+  //     owner_id: token,
+  //     title: activeNote.title
+  //     }),
+  // }); 
+
   };
 
   if (!activeNote) return <div className="no-active-note">No Active Note</div>;

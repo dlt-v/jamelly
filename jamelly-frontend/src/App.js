@@ -61,24 +61,24 @@ function App() {
     })
 
 
-    let notebooks = {};
-    response = await fetch("http://127.0.0.1:8000/notebooks/", {
-        method: "GET",
-        headers: {
-          "Content-type": "application/json",
-          Accept: "application/json",
-          Authorization: `Token ${token}`
-        }
-      }).then(response => response.json())
-      .then(data => {notebooks = data} )
-        .catch((error) => console.log(error));
-      let hasNotebook = false
-      console.log(user.token);
-      notebooks.forEach(notebook => {
-        if (notebook.owner_id == user.id) {
-          // Zapisz globalnie notebook_id
-        }
-      })
+    // let notebooks = {};
+    // response = await fetch("http://127.0.0.1:8000/notebooks/", {
+    //     method: "GET",
+    //     headers: {
+    //       "Content-type": "application/json",
+    //       Accept: "application/json",
+    //       Authorization: `Token ${token}`
+    //     }
+    //   }).then(response => response.json())
+    //   .then(data => {notebooks = data} )
+    //     .catch((error) => console.log(error));
+    //   let hasNotebook = false
+    //   console.log(user.token);
+    //   notebooks.forEach(notebook => {
+    //     if (notebook.owner_id == user.id) {
+    //       // Zapisz globalnie notebook_id
+    //     }
+    //   })
 
 
 

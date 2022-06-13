@@ -11,17 +11,46 @@ function NotebookPage({user, token}) {
   const [notes, setNotes] = useState(
     localStorage.notes ? JSON.parse(localStorage.notes) : []
   )
-    
-    // notebooks.forEach(notebook => {
-    //   if notebook.id = 
-    // });
+//------------------------------
+    // let notesFromApi
+    // let response = fetch("http://127.0.0.1:8000/notesnippets/", {
+    //   method: "GET",
+    //   headers: {
+    //     "Content-type": "application/json",
+    //     Accept: "application/json",
+    //     Authorization: `Token ${token}`
+    //   },
+    // }).then(response => response.json()).then(data => {
+    //   notesFromApi = data
+    // })
+    // .catch((error) => console.log(error));
 
-
+    // setNotes(notesFromApi)
+//--------------------------------
   const [activeNote, setActiveNote] = useState(false);
 
   useEffect(() => {
-    localStorage.setItem("notes", JSON.stringify(notes));
-  }, [notes])
+     localStorage.setItem("notes", JSON.stringify(notes));
+   }, [notes])
+
+  //--------------------------------
+  // fetch("http://127.0.0.1:8000/notesnippets/", {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-type": "application/json",
+  //     Accept: "application/json",
+  //     Authorization: `Token ${token}`
+  //   },
+
+  //   body: JSON.stringify({
+  //     id: note.id,
+  //     content: note.body,
+  //     created_at: note.lastModified,
+  //     owner_id: token,
+  //     title: note.title
+  //     }),
+  // }); 
+//--------------------------------
 
   const onAddNote = () => {
     const newNote = {
@@ -31,11 +60,38 @@ function NotebookPage({user, token}) {
       lastModified: Date.now(),
     };
 
+  //   fetch("http://127.0.0.1:8000/notesnippets/", {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-type": "application/json",
+  //     Accept: "application/json",
+  //     Authorization: `Token ${token}`
+  //   },
+
+  //   body: JSON.stringify({
+  //     id: newNote.id,
+  //     content: newNote.body,
+  //     created_at: newNote.lastModified,
+  //     owner_id: token,
+  //     title: newNote.title
+  //     }),
+  // }); 
+
     setNotes([newNote, ...notes]);
   };
 
   const onDeleteNote = (idToDelete) => {
-    setNotes(notes.filter((note) => note.id !== idToDelete));
+   setNotes(notes.filter((note) => note.id !== idToDelete));
+//--------------------------------
+  //  fetch(`http://127.0.0.1:8000/notesnippets/${idToDelete}/`, {
+  //       method: "DELETE",
+  //       headers: {
+  //         "Content-type": "application/json",
+  //         Accept: "application/json",
+  //         Authorization: `Token ${token}`
+  //       }
+  //     });
+//--------------------------------
   };
 
   const onUpdateNote = (updatedNote) => {
@@ -70,7 +126,7 @@ function NotebookPage({user, token}) {
         setActiveNote={setActiveNote}
       />
 
-      <Main activeNote={getActiveNote()} onUpdateNote={onUpdateNote} />
+      <Main activeNote={getActiveNote()} onUpdateNote={onUpdateNote} token={token}/>
     </motion.div>
   );
 }
