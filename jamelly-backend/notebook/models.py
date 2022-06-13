@@ -23,6 +23,7 @@ class NoteSnippet(models.Model):
     #     on_delete=models.CASCADE,
     #     blank=False
     # )
+    title = models.CharField(max_length=80, blank=False)
     owner_id = models.ForeignKey(
         'auth.User',
         related_name='note_snippets',
