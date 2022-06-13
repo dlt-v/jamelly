@@ -49,16 +49,18 @@ class NoteSnippetList(generics.ListCreateAPIView):
     authentication_classes = [authentication.TokenAuthentication]
 
     def perform_create(self, serializer):
-        try:
-            notebook = Notebook.objects.get(
-                pk=self.request.data.get('notebook_id'))
-            serializer.save(notebook_id=notebook)
-        except:
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        serializer.save(owner_id=self.request.user)
+    # def perform_create(self, serializer):
+    #     try:
+    #         notebook = Notebook.objects.get(
+    #             pk=self.request.data.get('notebook_id'))
+    #         serializer.save(notebook_id=notebook)
+    #     except:
+    #         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class NoteSnippetDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = NoteSnippet.objects.all()
     serializer_class = NoteSnippetSerializer
-    permission_classes = [IsOwner]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [authentication.TokenAuthentication]
