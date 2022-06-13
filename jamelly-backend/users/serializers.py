@@ -35,3 +35,11 @@ class RegistrationSerializer(serializers.ModelSerializer):
         new_user.set_password(password)
         new_user.save()
         return new_user
+
+
+class ChangePasswordSerializer(serializers.Serializer):
+    old_password = serializers.CharField(required=True)
+    new_password = serializers.CharField(required=True)
+
+    class Meta:
+        model = models.User
