@@ -16,7 +16,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ['id', 'username', 'notebooks', 'todos']
+        fields = ['id', 'username', 'notebooks', 'todos', 'email']
 
 
 class NotebookSerializer(serializers.ModelSerializer):
@@ -39,4 +39,4 @@ class NoteSnippetSerializer(serializers.ModelSerializer):
     class Meta:
         model = NoteSnippet
         # remember to change owner_id to notebook_id later on
-        fields = ['id', 'content', 'created_at', 'owner_id']
+        fields = ['id', 'content', 'created_at', 'owner_id', 'title']
