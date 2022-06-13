@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import ForgotPassword from "../pages/ForgotPassword";
-
 
 function LoginForm({ Login, error }) {
   const [details, setDetails] = useState({ username: "", password: "" });
@@ -13,7 +11,9 @@ function LoginForm({ Login, error }) {
 
   return (
     <form onSubmit={submitHandler}>
-      <button href="Register.js" id="register">Register</button>
+      <button href="Register.js" id="register">
+        Register
+      </button>
       <h1>
         <p id="Jam">Jam</p>
         <p id="elly">elly</p>
@@ -26,7 +26,9 @@ function LoginForm({ Login, error }) {
             name="email"
             id="email"
             placeholder="username"
-            onChange={(e) => setDetails({ ...details, username: e.target.value })}
+            onChange={(e) =>
+              setDetails({ ...details, username: e.target.value })
+            }
             value={details.email}
           />
         </div>
@@ -47,7 +49,7 @@ function LoginForm({ Login, error }) {
         </div>
       </div>
       <h6>
-        <a href="Forgotpassword.js">Forgot password?</a>
+        <a href="">Forgot password?</a>
       </h6>
     </form>
   );

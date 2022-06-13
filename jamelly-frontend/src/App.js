@@ -10,18 +10,25 @@ import { ReactComponent as Settingsico } from "./icons/settings-svgrepo-com.svg"
 import { ReactComponent as Tasksico } from "./icons/tasks-svgrepo-com.svg";
 
 import React, { useEffect, useState } from "react";
-var token =""
+import WelcomeSite from "./pages/WelcomeSite";
+
+var token = "";
 function App() {
   //Domyślny admin
-  const adminUser = {
-    email: "admin@admin.com",
-    password: "admin123",
-    username: "Admin",
-  };
-
+  // const adminUser = {
+  //   email: "admin@admin.com",
+  //   password: "admin123",
+  //   username: "Admin",
+  // };
 
   //pobieramy dane od użytkownika
-  const [user, setUser] = useState({ userID: -1, username: "", password: "", token: "", loggedIn: false });
+  const [user, setUser] = useState({
+    userID: -1,
+    username: "",
+    password: "",
+    token: "",
+    loggedIn: false,
+  });
   //jeśli dane są nieprawidłowe, to wyrzucamy mu error
   const [error, setError] = useState("");
 
@@ -41,25 +48,28 @@ function App() {
         username: details.username,
         password: details.password,
       }),
-    }).then(response => response.json())
-    .then(data => {token = data.token
-    if (token) isLoggedIn = true;
-      
     })
-    .catch((error) => console.log(error));
-    let userList = []
-    let newUserID = -1
-    response =  await fetch("http://127.0.0.1:8000/users/", {
+      .then((response) => response.json())
+      .then((data) => {
+        token = data.token;
+        if (token) isLoggedIn = true;
+      })
+      .catch((error) => console.log(error));
+    let userList = [];
+    let newUserID = -1;
+    response = await fetch("http://127.0.0.1:8000/users/", {
       method: "GET",
       header: {
         "Content-type": "application/json",
-      }
-    }).then(response => response.json())
-    .then(data => {userList = data})
-    userList.forEach(user => {
-      if (user.username == details.username) newUserID = user.id
+      },
     })
-
+      .then((response) => response.json())
+      .then((data) => {
+        userList = data;
+      });
+    userList.forEach((user) => {
+      if (user.username == details.username) newUserID = user.id;
+    });
 
     // let notebooks = {};
     // response = await fetch("http://127.0.0.1:8000/notebooks/", {
@@ -80,30 +90,25 @@ function App() {
     //     }
     //   })
 
+    if (isLoggedIn) {
+      console.log("Logged in!");
 
-
-
-    if (isLoggedIn){
-        console.log("Logged in!");
-
-
-
-        setUser({
-          userID: newUserID,
-          email: details.email,
-          password: details.password,
-          username: details.username,
-          loggedIn: true,
-          token: token
-        });
-        console.log(`User is ${details.username}\nToken is ${token}`);
-      } else {
-        console.log("Details do not match!");
-        setError("Błędne dane");
-      }
-    
+      setUser({
+        userID: newUserID,
+        email: details.email,
+        password: details.password,
+        username: details.username,
+        loggedIn: true,
+        token: token,
+      });
+      console.log(`User is ${details.username}\nToken is ${token}`);
+      console.log(details.email);
+    } else {
+      console.log("Details do not match!");
+      setError("Błędne dane");
+    }
   };
-  // ) 
+  // )
 
   //funkcja wylogowania
   const Logout = () => {
@@ -173,7 +178,7 @@ function App() {
                 <DropdownMenu />
               </NavItem>
             </Navbar>
-              <AnimatedRoutes token={token} user={user} />
+            <AnimatedRoutes token={token} user={user} />
             <button id="logout" onClick={Logout}>
               Logout
             </button>
