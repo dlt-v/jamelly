@@ -145,7 +145,7 @@ body {
   font-family: inherit;
   font-style: italic;
   left: calc(50% + 10px / 2);
-  top: calc(50% + 155px / 2 - 60.5px);
+  top: calc(50% + 85px / 2 - 60.5px);
   width: 75px;
   height: 30px;
   border-radius: 0px;
@@ -153,13 +153,13 @@ body {
   background: #e82525;
 }
 
-#ChangePassword {
+#ChangePasswordOld {
   position: absolute;
   font-size: 16px;
   font-family: inherit;
   font-style: italic;
-  left: calc(50% + 80px / 2);
-  top: calc(50% + 355px / 2 - 60.5px);
+  left: calc(50% + 15px / 2);
+  top: calc(50% + 380px / 2 - 60.5px);
   width: 75px;
   height: 30px;
   border-radius: 0px;
@@ -173,7 +173,7 @@ body {
   font-family: inherit;
   font-style: italic;
   left: calc(50% + 95px / 2);
-  top: calc(50% + 255px / 2 - 60.5px);
+  top: calc(50% + 185px / 2 - 60.5px);
   width: 75px;
   height: 30px;
   border-radius: 0px;
@@ -186,7 +186,7 @@ body {
   width: 296px;
   height: 35px;
   left: calc(50% - 515px / 2);
-  top: calc(50% + 245px / 2 - 60.5px);
+  top: calc(50% + 175px / 2 - 60.5px);
 
   background: linear-gradient(0deg, #404040, #404040),
     linear-gradient(0deg, #404040, #404040),
@@ -214,7 +214,7 @@ body {
   width: 296px;
   height: 35px;
   left: calc(50% - 600px / 2);
-  top: calc(50% + 145px / 2 - 60.5px);
+  top: calc(50% + 75px / 2 - 60.5px);
 
   background: linear-gradient(0deg, #404040, #404040),
     linear-gradient(0deg, #404040, #404040),
@@ -237,12 +237,12 @@ body {
   color: rgba(255, 255, 255, 0.5);
 }
 
-#chpassword {
+#chpasswordOld {
   position: absolute;
   width: 296px;
   height: 35px;
-  left: calc(50% - 525px / 2);
-  top: calc(50% + 345px / 2 - 60.5px);
+  left: calc(50% - 615px / 2);
+  top: calc(50% + 275px / 2 - 60.5px);
 
   background: linear-gradient(0deg, #404040, #404040),
     linear-gradient(0deg, #404040, #404040),
@@ -250,7 +250,35 @@ body {
   border-radius: 10px;
 }
 
-#chpassword::placeholder {
+#chpasswordOld::placeholder {
+  position: absolute;
+  width: 110px;
+  height: 19px;
+  left: calc(50% - 280px / 2);
+  top: calc(50% - 20px / 2);
+
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+#chpasswordNew {
+  position: absolute;
+  width: 296px;
+  height: 35px;
+  left: calc(50% - 595px / 2);
+  top: calc(50% + 375px / 2 - 60.5px);
+
+  background: linear-gradient(0deg, #404040, #404040),
+    linear-gradient(0deg, #404040, #404040),
+    linear-gradient(0deg, #404040, #404040), #404040;
+  border-radius: 10px;
+}
+
+#chpasswordNew::placeholder {
   position: absolute;
   width: 110px;
   height: 19px;
@@ -740,7 +768,7 @@ a {
 #SettingsBox {
   position: absolute;
   width: 941px;
-  height: 310px;
+  height: 380px;
   left: calc(50% - 941px / 2 + 0.5px);
   top: calc(50% - 818px / 2 + 113px);
 

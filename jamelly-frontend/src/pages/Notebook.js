@@ -7,90 +7,86 @@ import Sidebar from "../components/Notebook-Sidebar";
 import Main from "../components/Notebook-Main";
 import { useEffect } from "react";
 
-function NotebookPage({user, token}) {
-  const [notes, setNotes] = useState(
-    localStorage.notes ? JSON.parse(localStorage.notes) : []
-  )
-//------------------------------
-    // let notesFromApi
-    // let response = fetch("http://127.0.0.1:8000/notesnippets/", {
-    //   method: "GET",
-    //   headers: {
-    //     "Content-type": "application/json",
-    //     Accept: "application/json",
-    //     Authorization: `Token ${token}`
-    //   },
-    // }).then(response => response.json()).then(data => {
-    //   notesFromApi = data
-    // })
-    // .catch((error) => console.log(error));
 
-    // setNotes(notesFromApi)
-//--------------------------------
+
+function NotebookPage({user, token}) {
+  const [notes, setNotes] = useState([])
+
+  let fetchSnippets = async () => {
+    let notesfromapi = {}
+    
+    let response = await fetch("http://localhost:8000/notesnippets/", {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+        Accept: "application/json",
+        Authorization: `Token ${token}`
+      }
+    }).then(response => response.json())
+    .then(data => {
+    notesfromapi = data})
+    .catch((error) => console.log(error));
+
+    setNotes(notesfromapi)
+  }
+
+
+
+  // var notesfromApi = await fetchSnippets()
+  
+
+  // notesfromApi.forEach(note => [note, ...notes])
+
+  
   const [activeNote, setActiveNote] = useState(false);
 
-  useEffect(() => {
-     localStorage.setItem("notes", JSON.stringify(notes));
-   }, [notes])
+   useEffect(() => {
+    fetchSnippets()
 
-  //--------------------------------
-  // fetch("http://127.0.0.1:8000/notesnippets/", {
-  //   method: "POST",
-  //   headers: {
-  //     "Content-type": "application/json",
-  //     Accept: "application/json",
-  //     Authorization: `Token ${token}`
-  //   },
+    
 
-  //   body: JSON.stringify({
-  //     id: note.id,
-  //     content: note.body,
-  //     created_at: note.lastModified,
-  //     owner_id: token,
-  //     title: note.title
-  //     }),
-  // }); 
-//--------------------------------
+  //    localStorage.setItem("notes", JSON.stringify(notes));
+  //  }, [notes])
+  })
 
-  const onAddNote = () => {
-    const newNote = {
-      id: uuid(),
+  
+
+  const onAddNote = async () => {
+    // const newNote = {
+    //   id: uuid(),
+    //   title: "Untitled Note",
+    //   body: "",
+    //   date: Date.now(),
+    // };
+
+    const newNote = await fetch("http://localhost:8000/notesnippets/", {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json",
+      Accept: "application/json",
+      Authorization: `Token ${token}`
+    },
+
+    body: JSON.stringify({
       title: "Untitled Note",
-      body: "",
-      lastModified: Date.now(),
-    };
-
-  //   fetch("http://127.0.0.1:8000/notesnippets/", {
-  //   method: "POST",
-  //   headers: {
-  //     "Content-type": "application/json",
-  //     Accept: "application/json",
-  //     Authorization: `Token ${token}`
-  //   },
-
-  //   body: JSON.stringify({
-  //     id: newNote.id,
-  //     content: newNote.body,
-  //     created_at: newNote.lastModified,
-  //     owner_id: token,
-  //     title: newNote.title
-  //     }),
-  // }); 
+      content: "",
+    }),
+  });
 
     setNotes([newNote, ...notes]);
   };
 
   const onDeleteNote = (idToDelete) => {
-   setNotes(notes.filter((note) => note.id !== idToDelete));
+   //setNotes(notes.filter((note) => note.id !== idToDelete));
 //--------------------------------
-  //  fetch(`http://127.0.0.1:8000/notesnippets/${idToDelete}/`, {
-  //       method: "DELETE",
-  //       headers: {
-  //         "Content-type": "application/json",
-  //         Accept: "application/json",
-  //         Authorization: `Token ${token}`
-  //       }
-  //     });
+   fetch(`http://127.0.0.1:8000/notesnippets/${idToDelete}/`, {
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json",
+          Accept: "application/json",
+          Authorization: `Token ${token}`
+        }
+      });
 //--------------------------------
   };
 
@@ -107,7 +103,7 @@ function NotebookPage({user, token}) {
   };
 
   const getActiveNote = () => {
-    return notes.find(({ id }) => id === activeNote);
+    // return notes.find(({ id }) => id === activeNote);
   };
 
   return (

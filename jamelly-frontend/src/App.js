@@ -26,6 +26,7 @@ function App() {
     userID: -1,
     username: "",
     password: "",
+    email: "",
     token: "",
     loggedIn: false,
   });
@@ -55,6 +56,7 @@ function App() {
         if (token) isLoggedIn = true;
       })
       .catch((error) => console.log(error));
+      
     let userList = [];
     let newUserID = -1;
     response = await fetch("http://127.0.0.1:8000/users/", {
@@ -70,6 +72,7 @@ function App() {
     userList.forEach((user) => {
       if (user.username == details.username) newUserID = user.id;
     });
+    console.log(userList[0]['email']);
 
     // let notebooks = {};
     // response = await fetch("http://127.0.0.1:8000/notebooks/", {
@@ -95,14 +98,13 @@ function App() {
 
       setUser({
         userID: newUserID,
-        email: details.email,
+        email: userList[0]['email'],
         password: details.password,
         username: details.username,
         loggedIn: true,
         token: token,
       });
       console.log(`User is ${details.username}\nToken is ${token}`);
-      console.log(details.email);
     } else {
       console.log("Details do not match!");
       setError("Błędne dane");

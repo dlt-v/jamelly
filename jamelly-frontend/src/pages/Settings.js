@@ -1,12 +1,58 @@
-import React, { useReducer } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 function SettingsPage({ token, user }) {
-  console.log(user);
+  //console.log(user);
+  const [mailDetails, setMailDetails] = useState({ email: "" });
+  const [userDetails, setUserDetails] = useState({ username: "" });
+  const [passwordDetailsOld, setPasswordDetails] = useState({ passwordOld: "", passwordNew: ""});
 
-  const changeEmail = (e) => {};
-  const changeUsername = (e) => {};
-  const changePassword = (e) => {};
+  const changeEmail = async (e) => {
+    e.preventDefault();
+    await fetch(`http://127.0.0.1:8000/users/1/`, {
+      method: "PATCH",
+      headers: {
+        "Content-type": "application/json",
+        Accept: "application/json",
+        Authorization: `Token ${token}`,
+      },
+      body: JSON.stringify({
+          email: `${mailDetails.email}`
+          }),
+    }).then(result => console.log(result.json())).catch(error => console.log(error));
+  };
+
+  const changeUsername = async (e) => {
+    e.preventDefault();
+
+    fetch(`http://127.0.0.1:8000/users/1/`, {
+      method: "PATCH",
+      headers: {
+        "Content-type": "application/json",
+        Accept: "application/json",
+        Authorization: `Token ${token}`,
+      },
+      body: JSON.stringify({
+        username: `${userDetails.username}`,
+      }),
+    });
+  };
+
+  const changePassword = async (e) => {
+    e.preventDefault();
+    fetch(`http://127.0.0.1:8000/change-password/`, {
+      method: "PATCH",
+      headers: {
+        "Content-type": "application/json",
+        Accept: "application/json",
+        Authorization: `Token ${token}`,
+      },
+      body: JSON.stringify({
+        old_password: `${passwordDetailsOld.passwordOld}`,
+        new_password: `${passwordDetailsOld.passwordNew}`,
+      }),
+    });
+  };
 
   return (
     <motion.div
@@ -21,9 +67,16 @@ function SettingsPage({ token, user }) {
         <p>Username: {user.username}</p>
         <p>Password: {user.password}</p>
         <p>Change E-mail:</p>
-
         <form onSubmit={changeEmail}>
-          <input type="email" name="email" id="Chemail" placeholder="email" />
+          <input
+            type="email"
+            name="email"
+            id="Chemail"
+            placeholder="email"
+            onChange={(e) =>
+              setMailDetails({ ...mailDetails, email: e.target.value })
+            }
+          />
           <input type="submit" value="Change" id="ChangeEmail" />
         </form>
         <p>Change Username:</p>
@@ -33,18 +86,34 @@ function SettingsPage({ token, user }) {
             name="username"
             id="username"
             placeholder="username"
+            onChange={(e) =>
+              setUserDetails({ ...userDetails, username: e.target.value })
+            }
           />
           <input type="submit" value="Change" id="ChangeUserName" />
         </form>
-        <p>Change Passowrd:</p>
+        <p>Old Password:</p>
         <form onSubmit={changePassword}>
           <input
             type="password"
-            name="password"
-            id="chpassword"
-            placeholder="password"
+            name="oldpassword"
+            id="chpasswordOld"
+            placeholder="old password"
+            onChange={(e) =>
+              setPasswordDetails({ ...passwordDetailsOld, passwordOld: e.target.value })
+            }
+            />
+        <p>New Password:</p>
+            <input
+            type="password"
+            name="newpassword"
+            id="chpasswordNew"
+            placeholder="new password"
+            onChange={(e) =>
+              setPasswordDetails({ ...passwordDetailsOld, passwordNew: e.target.value })
+            }
           />
-          <input type="submit" value="Change" id="ChangePassword" />
+          <input type="submit" value="Change" id="ChangePasswordOld" />
         </form>
       </div>
     </motion.div>

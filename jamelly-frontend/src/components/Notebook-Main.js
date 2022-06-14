@@ -8,22 +8,18 @@ const Main = ({ activeNote, onUpdateNote, token }) => {
       lastModified: Date.now(),
     });
 
-  //   fetch("http://127.0.0.1:8000/notesnippets/", {
-  //   method: "POST",
-  //   headers: {
-  //     "Content-type": "application/json",
-  //     Accept: "application/json",
-  //     Authorization: `Token ${token}`
-  //   },
-
-  //   body: JSON.stringify({
-  //     id: activeNote.id,
-  //     content: activeNote.body,
-  //     created_at: activeNote.lastModified,
-  //     owner_id: token,
-  //     title: activeNote.title
-  //     }),
-  // }); 
+    fetch("http://127.0.0.1:8000/notesnippets/", {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json",
+      Accept: "application/json",
+      Authorization: `Token ${token}`
+    },
+    body: JSON.stringify({
+      content: activeNote.body,
+      title: activeNote.title
+    }),
+  }); 
 
   };
 

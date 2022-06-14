@@ -12,19 +12,19 @@ const TodoForm = ({ setInputText, todos, inputText, setTodos, setStatus, token }
     setInputText(e.target.value);
     let todofromapi = {}
     
-      let response = await fetch("http://localhost:8000/todos/", {
-        method: "GET",
-        headers: {
-          "Content-type": "application/json",
-          Accept: "application/json",
-          Authorization: `Token ${token}`
-        }
-      }).then(response => response.json())
-      .then(data => {
-      todofromapi = data})
-      .catch((error) => console.log(error));
-  
-      setTodos(todofromapi)
+    let response = await fetch("http://localhost:8000/todos/", {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+        Accept: "application/json",
+        Authorization: `Token ${token}`
+      }
+    }).then(response => response.json())
+    .then(data => {
+    todofromapi = data})
+    .catch((error) => console.log(error));
+
+    setTodos(todofromapi)
   };
 
   const submitTodoHandler = async (e) => {
