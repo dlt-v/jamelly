@@ -11,9 +11,6 @@ function LoginForm({ Login, error }) {
 
   return (
     <form onSubmit={submitHandler}>
-      <button href="Register.js" id="register">
-        Register
-      </button>
       <h1>
         <p id="Jam">Jam</p>
         <p id="elly">elly</p>
@@ -48,9 +45,6 @@ function LoginForm({ Login, error }) {
           <input type="submit" value="Login" id="Login" />
         </div>
       </div>
-      <h6>
-        <a href="">Forgot password?</a>
-      </h6>
     </form>
   );
 }
