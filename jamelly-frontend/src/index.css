@@ -78,6 +78,41 @@ body {
   color: #ffffff;
 }
 
+#Jam3 {
+  position: absolute;
+  width: 294px;
+  height: 106px;
+  left: calc(50% - 450px / 2);
+
+  top: calc(50% - 300px / 2 - 202px);
+
+  font-family: "Exo", sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 80px;
+  line-height: 106px;
+  text-align: center;
+
+  color: #e82525;
+}
+
+#elly3 {
+  position: absolute;
+  width: 294px;
+  height: 106px;
+  left: calc(50% - 158px / 2);
+  top: calc(50% - 300px / 2 - 202px);
+
+  font-family: "Exo", sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 80px;
+  line-height: 106px;
+  text-align: center;
+
+  color: #ffffff;
+}
+
 #Learn {
   position: absolute;
   width: 294px;
@@ -125,6 +160,28 @@ body {
   border-radius: 15px;
 }
 
+#Registerform {
+  position: absolute;
+  width: 390px;
+  height: 350px;
+  left: calc(50% - 390px / 2);
+  top: calc(50% - 325px / 2 + 8px);
+
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  color: white;
+  padding: 5px;
+  font-size: 23px;
+
+  background: #6a6a6a;
+  border-radius: 15px;
+}
+
+#Registerform p{
+  text-align: center;
+  margin-right: 10px;
+}
+
 /* Box na wpisanie maila*/
 #email {
   position: absolute;
@@ -137,6 +194,34 @@ body {
     linear-gradient(0deg, #404040, #404040),
     linear-gradient(0deg, #404040, #404040), #404040;
   border-radius: 10px;
+}
+
+#emailRegister {
+  position: absolute;
+  width: 296px;
+  height: 35px;
+  left: calc(50% - 296px / 2);
+  top: calc(50% - 120px / 2 - 60.5px);
+
+  background: linear-gradient(0deg, #404040, #404040),
+    linear-gradient(0deg, #404040, #404040),
+    linear-gradient(0deg, #404040, #404040), #404040;
+  border-radius: 10px;
+}
+
+#emailRegister::placeholder {
+  position: absolute;
+  width: 110px;
+  height: 19px;
+  left: calc(50% - 280px / 2);
+  top: calc(50% - 20px / 2);
+
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 #ChangeEmail {
@@ -307,6 +392,75 @@ body {
   border-radius: 10px;
 }
 
+#passwordRegister1 {
+  position: absolute;
+  width: 296px;
+  height: 35px;
+  left: calc(50% - 296px / 2);
+  top: calc(50% - 30px / 2 + 7.5px);
+
+  background: linear-gradient(0deg, #404040, #404040),
+    linear-gradient(0deg, #404040, #404040),
+    linear-gradient(0deg, #404040, #404040), #404040;
+  border-radius: 10px;
+}
+
+#passwordRegister2 {
+  position: absolute;
+  width: 296px;
+  height: 35px;
+  left: calc(50% - 296px / 2);
+  top: calc(50% + 80px / 2 + 7.5px);
+
+  background: linear-gradient(0deg, #404040, #404040),
+    linear-gradient(0deg, #404040, #404040),
+    linear-gradient(0deg, #404040, #404040), #404040;
+  border-radius: 10px;
+}
+
+#passwordRegister2::placeholder {
+  position: absolute;
+  width: 130px;
+  height: 19px;
+  left: calc(50% - 280px / 2);
+  top: calc(50% - 20px / 2);
+
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+#usernameRegister {
+  position: absolute;
+  width: 296px;
+  height: 35px;
+  left: calc(50% - 296px / 2);
+  top: calc(50% - 145px / 2 + 7.5px);
+
+  background: linear-gradient(0deg, #404040, #404040),
+    linear-gradient(0deg, #404040, #404040),
+    linear-gradient(0deg, #404040, #404040), #404040;
+  border-radius: 10px;
+}
+
+#usernameRegister::placeholder {
+  position: absolute;
+  width: 130px;
+  height: 19px;
+  left: calc(50% - 280px / 2);
+  top: calc(50% - 20px / 2);
+
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
 /*Formatowanie placeholderowego tekstu w oknach inputu Logowania*/
 #email::placeholder {
   position: absolute;
@@ -324,6 +478,21 @@ body {
 }
 
 #password::placeholder {
+  position: absolute;
+  width: 83px;
+  height: 19px;
+  left: calc(50% - 280px / 2);
+  top: calc(50% - 20px / 2);
+
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+#passwordRegister1::placeholder {
   position: absolute;
   width: 83px;
   height: 19px;
@@ -400,6 +569,29 @@ input {
   filter: brightness(1.2);
 }
 /*Koniec głównego boxu okna logowania */
+
+#RegisterSubmit {
+  position: absolute;
+  width: 126px;
+  height: 49px;
+  left: calc(50% - 130px / 2);
+  top: calc(50% + 60px / 2 + 76.5px);
+
+  background: #e82525;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
+  border-radius: 24px;
+
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+
+  color: #ffffff;
+}
+
+#RegisterSubmit:hover {
+  filter: brightness(1.2);
+}
 
 /* Stopka "Zapomniałeś hasła?"*/
 h6 {

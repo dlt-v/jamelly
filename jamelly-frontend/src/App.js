@@ -11,6 +11,7 @@ import { ReactComponent as Tasksico } from "./icons/tasks-svgrepo-com.svg";
 
 import React, { useEffect, useState } from "react";
 import WelcomeSite from "./pages/WelcomeSite";
+import RegisterForm from "./components/RegisterForm";
 
 var token = "";
 function App() {
@@ -30,8 +31,10 @@ function App() {
     token: "",
     loggedIn: false,
   });
+  const [Register, setRegistery] = useState({ flag: false})
   //jeśli dane są nieprawidłowe, to wyrzucamy mu error
   const [error, setError] = useState("");
+
 
   // funkcja logowania
   const Login = async (details) => {
@@ -56,7 +59,7 @@ function App() {
         if (token) isLoggedIn = true;
       })
       .catch((error) => console.log(error));
-      
+
     let userList = [];
     let newUserID = -1;
     response = await fetch("http://127.0.0.1:8000/users/", {
@@ -72,7 +75,7 @@ function App() {
     userList.forEach((user) => {
       if (user.username == details.username) newUserID = user.id;
     });
-    console.log(userList[0]['email']);
+    console.log(userList[0]["email"]);
 
     // let notebooks = {};
     // response = await fetch("http://127.0.0.1:8000/notebooks/", {
@@ -98,7 +101,7 @@ function App() {
 
       setUser({
         userID: newUserID,
-        email: userList[0]['email'],
+        email: userList[0]["email"],
         password: details.password,
         username: details.username,
         loggedIn: true,
@@ -116,6 +119,10 @@ function App() {
   const Logout = () => {
     setUser({ username: "", password: "", loggedIn: false, token: "" });
   };
+
+  const changePage = () => {
+    setRegistery({ flag: !Register.flag})
+  }
 
   function Navbar(props) {
     return (
@@ -185,9 +192,18 @@ function App() {
               Logout
             </button>
           </div>
+        ) : Register.flag ? (
+          <div>
+            <RegisterForm changePage={changePage} error={error}/>
+          </div>
         ) : (
-          //w przeciwnym wypadku wyświetlamy formularz logowania
-          <LoginForm Login={Login} error={error} />
+          <div>
+            {console.log(Register.flag)}
+            <LoginForm Login={Login} error={error} />
+            <button onClick={changePage} id="register">
+              Register
+            </button>
+          </div>
         )}
       </Router>
     </div>
