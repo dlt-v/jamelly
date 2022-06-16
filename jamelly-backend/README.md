@@ -64,7 +64,7 @@ Pola modelu `notebook`:
 | owner_id | auto |
 
 **Note-Snippety** są pojedynczymi fragmentami notatek w postaci tekstu.
-Limit znaków jest ustawiony na 1000 ale może uledz zmianie.
+Limit znaków jest ustawiony na 1000 ale może ulec zmianie.
 
 | Ścieżka                 | Opis               |
 | ----------------------- | ------------------ |
