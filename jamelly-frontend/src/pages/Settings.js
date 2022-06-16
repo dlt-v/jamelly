@@ -20,6 +20,8 @@ function SettingsPage({ token, user }) {
           email: `${mailDetails.email}`
           }),
     }).then(result => console.log(result.json())).catch(error => console.log(error));
+    
+    alert("Dane uaktualnią się przy następnym logowaniu!")
   };
 
   const changeUsername = async (e) => {
@@ -36,6 +38,8 @@ function SettingsPage({ token, user }) {
         username: `${userDetails.username}`,
       }),
     });
+    
+    alert("Dane uaktualnią się przy następnym logowaniu!")
   };
 
   const changePassword = async (e) => {
@@ -52,7 +56,10 @@ function SettingsPage({ token, user }) {
         new_password: `${passwordDetailsOld.passwordNew}`,
       }),
     });
+
+    alert("Dane uaktualnią się przy następnym logowaniu!")
   };
+
 
   return (
     <motion.div
@@ -65,7 +72,7 @@ function SettingsPage({ token, user }) {
         <div id="Avatar"></div>
         <p>E-Mail: {user.email}</p>
         <p>Username: {user.username}</p>
-        <p>Password: {user.password}</p>
+        <p>Set new informations:</p>
         <p>Change E-mail:</p>
         <form onSubmit={changeEmail}>
           <input

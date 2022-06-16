@@ -17,7 +17,7 @@ function TasksPage({token}) {
 
   useEffect(() => {
     filterHandler();
-    saveLocalTodos(); //zapisujemy na dysku nasze todos przy każdej zmianie stanu
+ //   saveLocalTodos(); //zapisujemy na dysku nasze todos przy każdej zmianie stanu
   }, [todos, status]);
 
   const filterHandler = () => {
@@ -35,9 +35,9 @@ function TasksPage({token}) {
   };
 
   //funkcja zapisująca na dysk nasze todos
-  const saveLocalTodos = () => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  };
+  // const saveLocalTodos = () => {
+  //   localStorage.setItem("todos", JSON.stringify(todos));
+  // };
 
   //funkcja pobierająca z dysku nasze todos
   const getLocalTodos = async () => {

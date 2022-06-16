@@ -82,7 +82,7 @@ const Todo = ({ text, setTodos, todos, todo, token }) => {
 
   return (
     <div className="todo">
-      <li className={`todo-item ${todo.completed ? "completed" : ""}`}>{text}</li>
+      <li className={`todo-item ${todo.status === "FIN" ? "completed" : ""}`}>{text}</li>
       <button onClick={completeHandler} className="complete">
         <i className="done">Done</i>
       </button>
