@@ -5,7 +5,10 @@ function SettingsPage({ token, user }) {
   //console.log(user);
   const [mailDetails, setMailDetails] = useState({ email: "" });
   const [userDetails, setUserDetails] = useState({ username: "" });
-  const [passwordDetailsOld, setPasswordDetails] = useState({ passwordOld: "", passwordNew: ""});
+  const [passwordDetailsOld, setPasswordDetails] = useState({
+    passwordOld: "",
+    passwordNew: "",
+  });
 
   const changeEmail = async (e) => {
     e.preventDefault();
@@ -17,11 +20,13 @@ function SettingsPage({ token, user }) {
         Authorization: `Token ${token}`,
       },
       body: JSON.stringify({
-          email: `${mailDetails.email}`
-          }),
-    }).then(result => console.log(result.json())).catch(error => console.log(error));
+        email: `${mailDetails.email}`,
+      }),
+    })
+      .then((result) => console.log(result.json()))
+      .catch((error) => console.log(error));
 
-    alert("Dane uaktualnią się przy następnym logowaniu!")
+    alert("Dane uaktualnią się przy następnym logowaniu!");
   };
 
   const changeUsername = async (e) => {
@@ -39,7 +44,7 @@ function SettingsPage({ token, user }) {
       }),
     });
 
-    alert("Dane uaktualnią się przy następnym logowaniu!")
+    alert("Dane uaktualnią się przy następnym logowaniu!");
   };
 
   const changePassword = async (e) => {
@@ -57,7 +62,7 @@ function SettingsPage({ token, user }) {
       }),
     });
 
-    alert("Dane uaktualnią się przy następnym logowaniu!")
+    alert("Dane uaktualnią się przy następnym logowaniu!");
   };
 
   return (
@@ -106,17 +111,23 @@ function SettingsPage({ token, user }) {
             id="chpasswordOld"
             placeholder="old password"
             onChange={(e) =>
-              setPasswordDetails({ ...passwordDetailsOld, passwordOld: e.target.value })
+              setPasswordDetails({
+                ...passwordDetailsOld,
+                passwordOld: e.target.value,
+              })
             }
-            />
-        <p>New Password:</p>
-            <input
+          />
+          <p>New Password:</p>
+          <input
             type="password"
             name="newpassword"
             id="chpasswordNew"
             placeholder="new password"
             onChange={(e) =>
-              setPasswordDetails({ ...passwordDetailsOld, passwordNew: e.target.value })
+              setPasswordDetails({
+                ...passwordDetailsOld,
+                passwordNew: e.target.value,
+              })
             }
           />
           <input type="submit" value="Change" id="ChangePasswordOld" />

@@ -15,7 +15,6 @@ import RegisterForm from "./components/RegisterForm";
 
 var token = "";
 function App() {
-
   //pobieramy dane od użytkownika
   const [user, setUser] = useState({
     userID: -1,
@@ -25,16 +24,12 @@ function App() {
     token: "",
     loggedIn: false,
   });
-  const [Register, setRegistery] = useState({ flag: false})
+  const [Register, setRegistery] = useState({ flag: false });
   //jeśli dane są nieprawidłowe, to wyrzucamy mu error
   const [error, setError] = useState("");
 
-
   // funkcja logowania
   const Login = async (details) => {
-    //if (
-    //details.email == adminUser.email &&
-    //details.password == adminUser.password
     let isLoggedIn = false;
     let response = await fetch("http://127.0.0.1:8000/auth/", {
       method: "POST",
@@ -69,8 +64,6 @@ function App() {
     userList.forEach((user) => {
       if (user.username == details.username) newUserID = user.id;
     });
-    console.log(userList[0]["email"]);
-
     // let notebooks = {};
     // response = await fetch("http://127.0.0.1:8000/notebooks/", {
     //     method: "GET",
@@ -95,7 +88,7 @@ function App() {
 
       setUser({
         userID: newUserID,
-        email: userList[0]["email"],
+        email: userList[newUserID - 1]["email"],
         password: details.password,
         username: details.username,
         loggedIn: true,
@@ -115,8 +108,8 @@ function App() {
   };
 
   const changePage = () => {
-    setRegistery({ flag: !Register.flag})
-  }
+    setRegistery({ flag: !Register.flag });
+  };
 
   function Navbar(props) {
     return (
@@ -176,6 +169,7 @@ function App() {
         {user.username != "" ? ( // jeśli pole email nie jest puste
           // wyświetlamy tymczasowo opcję powitania z możliwością wylogowania
           <div className="Welcome">
+            {console.log(user)}
             <Navbar>
               <NavItem icon={<Jamjarico />}>
                 <DropdownMenu />
@@ -188,7 +182,7 @@ function App() {
           </div>
         ) : Register.flag ? (
           <div>
-            <RegisterForm changePage={changePage} error={error}/>
+            <RegisterForm changePage={changePage} error={error} />
           </div>
         ) : (
           <div>
