@@ -42,7 +42,8 @@ W konsoli powinienieś widzieć wszelkie operacje jakie dotyczą serwera.
 Serwer udostępnia interfejs [REST](https://restfulapi.net/) do manipulowania danymi.
 `~` - dynamiczny root URL serwera. Podczas pracy najpewniej `http://localhost:8000`.
 
-![Wstępny koncept architektury modelu bazy danych.](https://cdn.discordapp.com/attachments/951023586079039518/969570609677865000/unknown.png 'Wstępny koncept architektury modelu bazy danych.').
+![Końcowy model bazy danych.](https://user-images.githubusercontent.com/34798378/173866431-72a801e0-6dfc-4114-81e6-424f77948187.png)
+
 
 **Notebooki** są to organizery notatek dla pojedynczego użytkownika. Mogą być one kategoryzowane wszelako.
 Notebook jest przypisany pojedynczemu użytkownikowi oraz nie posiada limitu note-snippetów.
@@ -63,7 +64,7 @@ Pola modelu `notebook`:
 | owner_id | auto |
 
 **Note-Snippety** są pojedynczymi fragmentami notatek w postaci tekstu.
-Limit znaków jest ustawiony na 1000 ale może uledz zmianie.
+Limit znaków jest ustawiony na 1000 ale może ulec zmianie.
 
 | Ścieżka                 | Opis               |
 | ----------------------- | ------------------ |
