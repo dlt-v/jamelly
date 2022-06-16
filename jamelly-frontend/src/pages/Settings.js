@@ -9,7 +9,7 @@ function SettingsPage({ token, user }) {
 
   const changeEmail = async (e) => {
     e.preventDefault();
-    await fetch(`http://127.0.0.1:8000/users/1/`, {
+    await fetch(`http://127.0.0.1:8000/users/${user.userID}/`, {
       method: "PATCH",
       headers: {
         "Content-type": "application/json",
@@ -20,14 +20,14 @@ function SettingsPage({ token, user }) {
           email: `${mailDetails.email}`
           }),
     }).then(result => console.log(result.json())).catch(error => console.log(error));
-    
+
     alert("Dane uaktualnią się przy następnym logowaniu!")
   };
 
   const changeUsername = async (e) => {
     e.preventDefault();
 
-    fetch(`http://127.0.0.1:8000/users/1/`, {
+    fetch(`http://127.0.0.1:8000/users/${user.userID}/`, {
       method: "PATCH",
       headers: {
         "Content-type": "application/json",
@@ -38,7 +38,7 @@ function SettingsPage({ token, user }) {
         username: `${userDetails.username}`,
       }),
     });
-    
+
     alert("Dane uaktualnią się przy następnym logowaniu!")
   };
 
@@ -59,7 +59,6 @@ function SettingsPage({ token, user }) {
 
     alert("Dane uaktualnią się przy następnym logowaniu!")
   };
-
 
   return (
     <motion.div

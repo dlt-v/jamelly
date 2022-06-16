@@ -15,12 +15,6 @@ import RegisterForm from "./components/RegisterForm";
 
 var token = "";
 function App() {
-  //Domyślny admin
-  // const adminUser = {
-  //   email: "admin@admin.com",
-  //   password: "admin123",
-  //   username: "Admin",
-  // };
 
   //pobieramy dane od użytkownika
   const [user, setUser] = useState({
