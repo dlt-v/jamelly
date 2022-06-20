@@ -43,7 +43,7 @@ function RegisterForm({ changePage, error }) {
       .then(data => {if (data.response === "Successfully registered new user.") {
         changePage();
       }else{
-        alert("This user already exists!")
+        alert("This username already exists!")
       }})
       .then((result) => console.log(result.json()))
       .catch((error) => console.log(error));
