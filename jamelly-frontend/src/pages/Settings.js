@@ -26,7 +26,7 @@ function SettingsPage({ token, user }) {
       .then((result) => console.log(result.json()))
       .catch((error) => console.log(error));
 
-    alert("Dane uaktualnią się przy następnym logowaniu!");
+    alert("Data will be updated by the next login!");
   };
 
   const changeUsername = async (e) => {
@@ -44,7 +44,7 @@ function SettingsPage({ token, user }) {
       }),
     });
 
-    alert("Dane uaktualnią się przy następnym logowaniu!");
+    alert("Data will be updated by the next login!");
   };
 
   const changePassword = async (e) => {
@@ -62,7 +62,7 @@ function SettingsPage({ token, user }) {
       }),
     });
 
-    alert("Dane uaktualnią się przy następnym logowaniu!");
+    alert("Data will be updated by the next login!");
   };
 
   return (
