@@ -101,7 +101,7 @@ Pola modelu `todo`:
 
 | Ścieżka     | Opis |
 | ----------- | ---- |
-| ~/users/    | GET  |
+| ~/users/    | GET, PUT  |
 | ~/register/ | POST |
 | ~/auth/     | POST |
 
